@@ -53,13 +53,14 @@ export function formatCount(n: number): string {
   return `~${n.toLocaleString()} people`;
 }
 
-export function formatLooks(percentile: number): string {
-  if (percentile >= 100) return "No preference (all attractiveness levels)";
-  if (percentile >= 75) return `Top ${percentile}% (average or better)`;
-  if (percentile >= 50) return `Top ${percentile}% (above average)`;
-  if (percentile >= 25) return `Top ${percentile}% (quite attractive)`;
-  if (percentile >= 10) return `Top ${percentile}% (very attractive)`;
-  return `Top ${percentile}% (extremely attractive)`;
+export function formatLooks(minPercentile: number): string {
+  const top = 100 - minPercentile;
+  if (minPercentile <= 1) return "No preference (all attractiveness levels)";
+  if (top <= 1)  return `Top 1% (extremely attractive)`;
+  if (top <= 10) return `Top ${top}% (very attractive)`;
+  if (top <= 25) return `Top ${top}% (quite attractive)`;
+  if (top <= 50) return `Top ${top}% (above average)`;
+  return `Top ${top}% (average or better)`;
 }
 
 export const HEIGHT_MARKS_MALE = [

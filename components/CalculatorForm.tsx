@@ -430,9 +430,9 @@ export default function CalculatorForm({
             min={1} max={100} step={1}
             valueMin={criteria.minLooksPercentile} valueMax={criteria.maxLooksPercentile}
             accent={accent}
-            formatValue={(v) => v >= 100 ? (t("no_max", lang)) : `Top ${v}%`}
+            formatValue={(v) => v >= 100 ? (t("no_max", lang)) : `Top ${100 - v}%`}
             noMaxSentinel={100} noMaxLabel={t("no_max", lang)}
-            labels={["Top 1%", "Top 25%", "Top 50%", "Top 75%", "Any"]}
+            labels={["Top 99%", "Top 75%", "Top 50%", "Top 25%", "Any"]}
             onChange={(lo, hi) => setCriteria((p) => ({
               ...p,
               minLooksPercentile: lo,
@@ -442,7 +442,7 @@ export default function CalculatorForm({
           <p className="text-xs text-slate-400 mt-1 text-center">
             {criteria.minLooksPercentile <= 1 && criteria.maxLooksPercentile >= 100
               ? t("looks_no_pref", lang)
-              : `${formatLooks(criteria.minLooksPercentile)}${criteria.maxLooksPercentile < 100 ? ` – max top ${criteria.maxLooksPercentile}%` : ""}`}
+              : `${formatLooks(criteria.minLooksPercentile)}${criteria.maxLooksPercentile < 100 ? ` – up to top ${100 - criteria.maxLooksPercentile}%` : ""}`}
           </p>
         </Section>
 
