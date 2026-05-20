@@ -427,7 +427,7 @@ export default function CalculatorForm({
         {/* Attractiveness */}
         <Section label={t("attractiveness", lang)} accent={accent}>
           <RangeSlider
-            min={1} max={100} step={1}
+            min={5} max={100} step={5}
             valueMin={criteria.minLooksPercentile} valueMax={criteria.maxLooksPercentile}
             accent={accent}
             formatValue={(v) => v >= 100 ? (t("no_max", lang)) : `Top ${100 - v}%`}
@@ -538,7 +538,7 @@ export default function CalculatorForm({
 
         {/* Heritage — US only */}
         {!useMetric && (
-          <Section label="Heritage / Country of Origin" accent={accent}>
+          <Section label="Ethnicity" accent={accent}>
             <p className="text-xs text-slate-500 mb-2">
               Based on US Census ACS ancestry data. Proportions may overlap for multi-heritage individuals.
             </p>
