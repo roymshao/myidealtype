@@ -23,8 +23,58 @@ interface ResultDisplayProps {
   stats?: GenderStats;
   maxH?: number;
   maxW?: number;
+  country?: string;
   onSwitchCity?: (city: CityEntry | null) => void;
 }
+
+// ── Affiliate app data ─────────────────────────────────────────────────────────
+// Replace REPLACE_AFFILIATE_* hrefs with your real tracking links once approved.
+interface AffiliateApp { name: string; emoji: string; href: string; tagline: string }
+
+const AFFILIATE_APPS: Record<string, AffiliateApp[]> = {
+  us: [
+    { name: "Hinge",  emoji: "💜", href: "https://hinge.co/?ref=REPLACE_AFFILIATE_HINGE_US",   tagline: "Most likely to lead to a relationship" },
+    { name: "Bumble", emoji: "🐝", href: "https://bumble.com/?ref=REPLACE_AFFILIATE_BUMBLE_US", tagline: "Quality matches, women move first" },
+    { name: "Match",  emoji: "❤️", href: "https://match.com/?ref=REPLACE_AFFILIATE_MATCH_US",   tagline: "Serious daters, all ages" },
+  ],
+  kr: [
+    { name: "Pairs",   emoji: "💕", href: "https://pairs.lv/?ref=REPLACE_AFFILIATE_PAIRS_KR",   tagline: "진지한 만남" },
+    { name: "Amanda",  emoji: "💝", href: "https://amanda.kr/?ref=REPLACE_AFFILIATE_AMANDA_KR",  tagline: "외모 심사 소개팅" },
+    { name: "Tinder",  emoji: "🔥", href: "https://tinder.com/?ref=REPLACE_AFFILIATE_TINDER_KR", tagline: "가장 큰 매칭 풀" },
+  ],
+  jp: [
+    { name: "Pairs",   emoji: "💕", href: "https://pairs.lv/jp/?ref=REPLACE_AFFILIATE_PAIRS_JP", tagline: "恋活・婚活" },
+    { name: "with",    emoji: "💙", href: "https://with.is/?ref=REPLACE_AFFILIATE_WITH_JP",       tagline: "心理テストで相性診断" },
+    { name: "Tinder",  emoji: "🔥", href: "https://tinder.com/?ref=REPLACE_AFFILIATE_TINDER_JP",  tagline: "出会いの幅を広げる" },
+  ],
+  cn: [
+    { name: "Tantan", emoji: "🧡", href: "https://tantanapp.com/?ref=REPLACE_AFFILIATE_TANTAN_CN", tagline: "找到你的另一半" },
+    { name: "Soul",   emoji: "🔵", href: "https://soulapp.cn/?ref=REPLACE_AFFILIATE_SOUL_CN",      tagline: "灵魂匹配" },
+    { name: "Momo",   emoji: "🟡", href: "https://immomo.com/?ref=REPLACE_AFFILIATE_MOMO_CN",      tagline: "附近的人" },
+  ],
+  // EU countries share the same top-3 apps
+  _eu: [
+    { name: "Tinder", emoji: "🔥", href: "https://tinder.com/?ref=REPLACE_AFFILIATE_TINDER_EU",  tagline: "Largest pool in Europe" },
+    { name: "Hinge",  emoji: "💜", href: "https://hinge.co/?ref=REPLACE_AFFILIATE_HINGE_EU",     tagline: "Designed to be deleted" },
+    { name: "Bumble", emoji: "🐝", href: "https://bumble.com/?ref=REPLACE_AFFILIATE_BUMBLE_EU",  tagline: "Women make the first move" },
+  ],
+};
+const EU_COUNTRIES = new Set(["uk","de","fr","nl","es","it","se","pl"]);
+
+function getAffiliateApps(country?: string): AffiliateApp[] {
+  if (!country) return AFFILIATE_APPS.us;
+  if (AFFILIATE_APPS[country]) return AFFILIATE_APPS[country];
+  if (EU_COUNTRIES.has(country)) return AFFILIATE_APPS._eu;
+  return AFFILIATE_APPS.us;
+}
+
+const AFFILIATE_COPY: Record<string, string> = {
+  Realistic:        "Your type isn't rare — they're just waiting to be found.",
+  Selective:        "1 in 20 people match your criteria. These apps have the largest pools.",
+  "Very Selective": "They exist. You'll need volume — start with the biggest networks.",
+  Elite:            "Finding them takes effort. Cast the widest net possible.",
+  Delusional:       "Lower slightly, or cast a very wide net. Here's where to start.",
+};
 
 const TARGET_LABEL: Record<string, string> = { male: "women", female: "men" };
 
@@ -39,7 +89,7 @@ function loadImage(src: string): Promise<HTMLImageElement> {
 
 export default function ResultDisplay({
   result, criteria, seekerGender, selectedCity,
-  cities, stats, maxH: maxHProp, maxW: maxWProp, onSwitchCity,
+  cities, stats, maxH: maxHProp, maxW: maxWProp, country, onSwitchCity,
 }: ResultDisplayProps) {
   const [copied, setCopied] = useState(false);
   const [captionCopied, setCaptionCopied] = useState(false);
@@ -132,6 +182,7 @@ export default function ResultDisplay({
     criteria.minIncomeK > 0 ? `${formatIncome(criteria.minIncomeK)}+ income` : null,
     looksTopPct < 100 ? `Top ${looksTopPct}% looks` : null,
     (criteria.religions ?? []).length > 0 ? `${(criteria.religions ?? []).length === 1 ? (criteria.religions ?? [])[0].replace(/_/g, " ") : `${(criteria.religions ?? []).length} faiths`}` : null,
+    [criteria.mbtiEI, criteria.mbtiSN, criteria.mbtiTF, criteria.mbtiJP].filter(v => v && v !== "any").join("") || null,
   ].filter(Boolean) as string[];
 
   // Map breakdown keys → human labels for deal-breaker spotlight
@@ -140,7 +191,7 @@ export default function ResultDisplay({
     income: "Income", wealth: "Net worth", looks: "Attractiveness",
     relationship: "Relationship history", education: "Education",
     heritage: "Ethnicity", nativity: "Locally born", smoking: "Non-smoker",
-    religion: "Religion", only_child: "Only child", tizhinei: "Civil service",
+    religion: "Religion", mbti: "Personality type", only_child: "Only child", tizhinei: "Civil service",
   };
 
   // ── Story card (9:16) ──────────────────────────────────────────────────────
@@ -482,6 +533,7 @@ export default function ResultDisplay({
     { label: "Non-smoker", value: result.breakdown.smoking },
     { label: "Locally born", value: result.breakdown.nativity },
     ...(result.breakdown.religion !== undefined ? [{ label: "Religion", value: result.breakdown.religion }] : []),
+    ...(result.breakdown.mbti !== undefined ? [{ label: "Personality type", value: result.breakdown.mbti }] : []),
     ...(result.breakdown.only_child !== undefined ? [{ label: "独生子女", value: result.breakdown.only_child }] : []),
     ...(result.breakdown.tizhinei !== undefined ? [{ label: "体制内工作", value: result.breakdown.tizhinei }] : []),
   ].filter(r => r.value < 0.999);
@@ -555,6 +607,28 @@ export default function ResultDisplay({
       </div>
 
       <AdBanner slot="REPLACE_RESULTS_AD_SLOT" format="rectangle" className="rounded-xl" />
+
+      {/* Dating app affiliate CTA */}
+      <div className="rounded-xl border border-slate-200 bg-white p-4">
+        <p className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-1">Ready to find them?</p>
+        <p className="text-sm text-slate-500 mb-3">{AFFILIATE_COPY[result.grade]}</p>
+        <div className="grid grid-cols-3 gap-2">
+          {getAffiliateApps(country).map((app) => (
+            <a
+              key={app.name}
+              href={app.href}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              className="flex flex-col items-center gap-1.5 rounded-xl p-3 border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition-colors text-center"
+            >
+              <span className="text-2xl leading-none">{app.emoji}</span>
+              <span className="text-xs font-bold text-slate-800">{app.name}</span>
+              <span className="text-[10px] text-slate-400 leading-tight">{app.tagline}</span>
+            </a>
+          ))}
+        </div>
+        <p className="text-[10px] text-slate-300 mt-2.5 text-center">Affiliate links — help keep this tool free</p>
+      </div>
 
       {/* Share section */}
       <div className="rounded-xl border border-slate-200 bg-white p-4">

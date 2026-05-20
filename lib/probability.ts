@@ -15,6 +15,12 @@ export interface AgeConditionalData {
   edu_by_age: Record<string, { any: number; high_school: number; bachelors_plus: number; graduate: number }>;
   // P(non_smoker | age bucket) — CDC NHANES shows lower smoking in 18–24 and 55–65 cohorts
   smoking_by_age?: Record<string, number>;
+  // Multiplier: college grads accumulate ~3× more wealth than HS-only (Fed SCF 2022)
+  wealth_ratio_by_edu?: Record<string, number>;
+  // P(non_smoker | edu) — college grads smoke at ~half the rate of HS-only (CDC NHANES)
+  smoking_by_edu?: Record<string, number>;
+  // P(religion | age bucket) — "nones" rise sharply in younger cohorts (Pew Research 2023)
+  religion_by_age?: Record<string, Record<string, number>>;
 }
 
 export interface HeritageCorrelationData {
@@ -25,6 +31,8 @@ export interface HeritageCorrelationData {
   weight_ratio: number;
   edu_bachelors_plus: number;
   edu_graduate: number;
+  // P(non_smoker | heritage group) — CDC NHANES/CPS-TUS; East Asian ~94%, Native ~77%
+  non_smoker_rate?: number;
 }
 
 export interface GenderStats {
@@ -39,6 +47,7 @@ export interface GenderStats {
   nativity: { native_born: number; foreign_born: number };
   heritage: Record<string, number>;
   religion?: Record<string, number>;
+  mbti?: { E: number; I: number; S: number; N: number; T: number; F: number; J: number; P: number };
   lifestyle: { non_smoker: number };
   heritage_correlations?: Record<string, HeritageCorrelationData>;
   only_child?: Record<string, number>;
@@ -63,6 +72,10 @@ export interface Criteria {
   education: "any" | "high_school" | "bachelors_plus" | "graduate";
   heritages: string[];
   religions: string[];
+  mbtiEI?: "any" | "E" | "I";
+  mbtiSN?: "any" | "S" | "N";
+  mbtiTF?: "any" | "T" | "F";
+  mbtiJP?: "any" | "J" | "P";
   nonSmokerOnly: boolean;
   acceptsImmigrants: boolean;
   cityId: string | null;
@@ -96,6 +109,7 @@ export interface ProbabilityResult {
     nativity: number;
     smoking: number;
     religion?: number;
+    mbti?: number;
     only_child?: number;
     tizhinei?: number;
   };
@@ -356,6 +370,30 @@ function getReligionProbability(selected: string[], data: Record<string, number>
   return Math.min(1.0, selected.reduce((sum, r) => sum + (data[r] ?? 0), 0));
 }
 
+function getMBTIProbability(criteria: Criteria, mbti: GenderStats["mbti"]): number {
+  if (!mbti) return 1.0;
+  const get = (key: string | undefined) => (!key || key === "any") ? 1.0 : (mbti[key as keyof typeof mbti] ?? 0.5);
+  return get(criteria.mbtiEI) * get(criteria.mbtiSN) * get(criteria.mbtiTF) * get(criteria.mbtiJP);
+}
+
+function bucketWeightedReligionProbability(
+  selected: string[],
+  weights: Array<{ key: string; w: number }>,
+  religionByAge: Record<string, Record<string, number>>,
+  fallback: Record<string, number> | undefined,
+): number {
+  if (selected.length === 0 || !fallback) return 1.0;
+  let sum = 0, totalW = 0;
+  for (const { key, w } of weights) {
+    const bucketData = religionByAge[key];
+    if (bucketData) {
+      sum += getReligionProbability(selected, bucketData) * w;
+      totalW += w;
+    }
+  }
+  return totalW > 0 ? sum / totalW : getReligionProbability(selected, fallback);
+}
+
 function getGrade(p: number): Grade {
   if (p >= 0.20) return "Realistic";
   if (p >= 0.05) return "Selective";
@@ -466,7 +504,13 @@ export function calculate(
   if (corr) {
     wealthRatio = corr.wealth_ratio * cityWealthRatio;
   } else if (cond) {
-    wealthRatio = bucketWeightedScalar(bucketWeights, cond.wealth_ratio_by_age, 1.0) * cityWealthRatio;
+    const ageWealthRatio = bucketWeightedScalar(bucketWeights, cond.wealth_ratio_by_age, 1.0);
+    // Condition on education the same way income does — P(wealth >= X | edu, age) avoids
+    // double-counting because pEdu already captures P(edu | age) as a separate term.
+    const eduWealthRatio = criteria.education !== "any" && cond.wealth_ratio_by_edu
+      ? (cond.wealth_ratio_by_edu[criteria.education] ?? 1.0)
+      : 1.0;
+    wealthRatio = ageWealthRatio * eduWealthRatio * cityWealthRatio;
   } else {
     wealthRatio = cityWealthRatio;
   }
@@ -506,14 +550,27 @@ export function calculate(
     : criteria.heritages.length > 0
       ? getHeritageConditionalNativity(criteria.heritages, stats.heritage, stats.nativity.native_born)
       : stats.nativity.native_born;
-  // Smoking: use age-conditional rates when available (CDC NHANES — younger/older cohorts smoke less)
-  const pSmoking = criteria.nonSmokerOnly
-    ? (cond?.smoking_by_age
-        ? bucketWeightedScalar(bucketWeights, cond.smoking_by_age, stats.lifestyle.non_smoker)
-        : stats.lifestyle.non_smoker)
-    : 1.0;
+  // Smoking: heritage > edu > age cascade (CDC NHANES/CPS-TUS)
+  // East Asian ~94% non-smoker; college grads ~93-95% vs HS ~78-80%; younger cohorts also lower
+  let pSmoking: number;
+  if (!criteria.nonSmokerOnly) {
+    pSmoking = 1.0;
+  } else if (corr?.non_smoker_rate !== undefined) {
+    pSmoking = corr.non_smoker_rate;
+  } else if (criteria.education !== "any" && cond?.smoking_by_edu) {
+    pSmoking = cond.smoking_by_edu[criteria.education] ?? stats.lifestyle.non_smoker;
+  } else if (cond?.smoking_by_age) {
+    pSmoking = bucketWeightedScalar(bucketWeights, cond.smoking_by_age, stats.lifestyle.non_smoker);
+  } else {
+    pSmoking = stats.lifestyle.non_smoker;
+  }
 
-  const pReligion = getReligionProbability(criteria.religions ?? [], stats.religion);
+  // Religion: use age-conditional rates when available (Pew Research 2023 — "nones" skew younger)
+  const pReligion = cond?.religion_by_age
+    ? bucketWeightedReligionProbability(criteria.religions ?? [], bucketWeights, cond.religion_by_age, stats.religion)
+    : getReligionProbability(criteria.religions ?? [], stats.religion);
+
+  const pMBTI = getMBTIProbability(criteria, stats.mbti);
 
   const cnOnlyChildKey = criteria.cnOnlyChild ?? "any";
   const pOnlyChild = cnOnlyChildKey !== "any" && stats.only_child
@@ -525,7 +582,7 @@ export function calculate(
     ? (stats.work_sector[cnTizhineiKey] ?? 1.0)
     : 1.0;
 
-  const probability = pAge * pHeight * pWeight * pIncome * pWealth * pLooks * pRel * pEdu * pHeritage * pNativity * pSmoking * pReligion * pOnlyChild * pTizhinei;
+  const probability = pAge * pHeight * pWeight * pIncome * pWealth * pLooks * pRel * pEdu * pHeritage * pNativity * pSmoking * pReligion * pMBTI * pOnlyChild * pTizhinei;
   const estimatedCount = Math.round(stats.total_population * probability);
   const localCount = localPop !== null ? Math.round(localPop * probability) : null;
 
@@ -555,6 +612,7 @@ export function calculate(
       nativity: pNativity,
       smoking: pSmoking,
       ...(pReligion < 1.0 ? { religion: pReligion } : {}),
+      ...(pMBTI < 1.0 ? { mbti: pMBTI } : {}),
       ...(pOnlyChild < 1.0 ? { only_child: pOnlyChild } : {}),
       ...(pTizhinei < 1.0 ? { tizhinei: pTizhinei } : {}),
     },
@@ -574,6 +632,7 @@ export const DEFAULT_MALE_CRITERIA: Criteria = {
   education: "any",
   heritages: [],
   religions: [],
+  mbtiEI: "any", mbtiSN: "any", mbtiTF: "any", mbtiJP: "any",
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -590,6 +649,7 @@ export const DEFAULT_FEMALE_CRITERIA: Criteria = {
   education: "any",
   heritages: [],
   religions: [],
+  mbtiEI: "any", mbtiSN: "any", mbtiTF: "any", mbtiJP: "any",
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -606,6 +666,7 @@ export const DEFAULT_MALE_CRITERIA_KR: Criteria = {
   education: "any",
   heritages: [],
   religions: [],
+  mbtiEI: "any", mbtiSN: "any", mbtiTF: "any", mbtiJP: "any",
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -622,6 +683,7 @@ export const DEFAULT_FEMALE_CRITERIA_KR: Criteria = {
   education: "any",
   heritages: [],
   religions: [],
+  mbtiEI: "any", mbtiSN: "any", mbtiTF: "any", mbtiJP: "any",
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -638,6 +700,7 @@ export const DEFAULT_MALE_CRITERIA_JP: Criteria = {
   education: "any",
   heritages: [],
   religions: [],
+  mbtiEI: "any", mbtiSN: "any", mbtiTF: "any", mbtiJP: "any",
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -654,6 +717,7 @@ export const DEFAULT_FEMALE_CRITERIA_JP: Criteria = {
   education: "any",
   heritages: [],
   religions: [],
+  mbtiEI: "any", mbtiSN: "any", mbtiTF: "any", mbtiJP: "any",
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -670,6 +734,7 @@ export const DEFAULT_MALE_CRITERIA_CN: Criteria = {
   education: "any",
   heritages: [],
   religions: [],
+  mbtiEI: "any", mbtiSN: "any", mbtiTF: "any", mbtiJP: "any",
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -688,6 +753,7 @@ export const DEFAULT_FEMALE_CRITERIA_CN: Criteria = {
   education: "any",
   heritages: [],
   religions: [],
+  mbtiEI: "any", mbtiSN: "any", mbtiTF: "any", mbtiJP: "any",
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,

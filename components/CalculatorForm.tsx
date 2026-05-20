@@ -594,6 +594,43 @@ export default function CalculatorForm({
           </Section>
         )}
 
+        {/* MBTI Personality */}
+        <Section label={t("mbti", lang)} accent={accent}>
+          <p className="text-xs text-slate-500 mb-3">
+            Leave any row blank to skip that dimension. Sources: Myers-Briggs Foundation, regional surveys.
+          </p>
+          <div className="space-y-2.5">
+            {(
+              [
+                { field: "mbtiEI" as const, label: t("mbti_ei", lang), a: "E", b: "I" },
+                { field: "mbtiSN" as const, label: t("mbti_sn", lang), a: "S", b: "N" },
+                { field: "mbtiTF" as const, label: t("mbti_tf", lang), a: "T", b: "F" },
+                { field: "mbtiJP" as const, label: t("mbti_jp", lang), a: "J", b: "P" },
+              ] as const
+            ).map(({ field, label, a, b }) => (
+              <div key={field} className="flex items-center gap-2">
+                <span className="text-xs text-slate-400 w-16 shrink-0 leading-tight">{label}</span>
+                <div className="flex gap-1.5 flex-1">
+                  {(["any", a, b] as const).map((val) => (
+                    <button
+                      key={val}
+                      className="flex-1 rounded-lg border px-1.5 py-1.5 text-xs font-medium transition-all"
+                      style={
+                        (criteria[field] ?? "any") === val
+                          ? { borderColor: accent, background: accent + "15", color: accent }
+                          : { borderColor: "#e2e8f0", background: "#fff", color: "#64748b" }
+                      }
+                      onClick={() => set(field, val)}
+                    >
+                      {val === "any" ? "Any" : t(`mbti_${val}`, lang)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
+
         {/* Immigration — hidden for CN */}
         {country !== "cn" && (
           <Section label={t("immigration", lang)} accent={accent}>
@@ -662,6 +699,7 @@ export default function CalculatorForm({
             stats={stats}
             maxH={maxH}
             maxW={maxW}
+            country={country}
             onSwitchCity={handleSwitchCity}
           />
         </div>
