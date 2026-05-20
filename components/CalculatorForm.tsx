@@ -623,6 +623,15 @@ export default function CalculatorForm({
         </div>
       )}
 
+      <div className="mt-6 text-center pb-4">
+        <a
+          href="/algorithm"
+          className="text-xs text-slate-400 hover:text-slate-600 transition underline underline-offset-2"
+        >
+          📐 How the algorithm works →
+        </a>
+      </div>
+
       <div className="sticky-bottom-bar fixed bottom-0 left-0 right-0 flex justify-center bg-white/95 backdrop-blur border-t border-slate-200 shadow-md z-50 p-1">
         <AdBanner slot="REPLACE_STICKY_AD_SLOT" format="horizontal" className="max-w-sm w-full" />
       </div>

@@ -131,6 +131,44 @@ const HERITAGE_GROUP_MAP: Record<string, string> = {
   pacific_islander: "pacific",
 };
 
+// ─── Heritage-conditional nativity rates ─────────────────────────────────
+// P(native_born | heritage_group) — US Census ACS 2022
+// Critically different from overall P(native_born) ≈ 0.87.
+// East Asians and South Asians are majority foreign-born in the US;
+// treating them as "87% native-born" would overstate the locally-born pool by 2-3×.
+const NATIVITY_BY_HERITAGE_GROUP: Record<string, number> = {
+  white:       0.97,
+  black:       0.91,
+  hispanic:    0.66,
+  east_asian:  0.42,
+  south_asian: 0.26,
+  mena:        0.55,
+  native:      0.99,
+  pacific:     0.85,
+};
+
+function getHeritageConditionalNativity(
+  selectedHeritages: string[],
+  heritageData: Record<string, number>,
+  fallback: number,
+): number {
+  const groupWeights: Record<string, number> = {};
+  let totalWeight = 0;
+  for (const h of selectedHeritages) {
+    const group = HERITAGE_GROUP_MAP[h];
+    if (!group) continue;
+    const w = heritageData[h] ?? 0.001;
+    groupWeights[group] = (groupWeights[group] ?? 0) + w;
+    totalWeight += w;
+  }
+  if (totalWeight === 0) return fallback;
+  let weighted = 0;
+  for (const [group, w] of Object.entries(groupWeights)) {
+    weighted += (NATIVITY_BY_HERITAGE_GROUP[group] ?? fallback) * (w / totalWeight);
+  }
+  return weighted;
+}
+
 // ─── Age bucket helpers ───────────────────────────────────────────────────
 
 // Half-open intervals [lo, hi) so there are no gaps or overlaps between buckets.
@@ -451,7 +489,13 @@ export function calculate(
   }
 
   const pHeritage = getHeritageProbability(criteria.heritages, stats.heritage);
-  const pNativity = criteria.acceptsImmigrants ? 1.0 : stats.nativity.native_born;
+  // When a specific heritage is selected, use P(native_born | that heritage group)
+  // rather than the overall national rate — immigrant-heavy groups differ by 2-3×.
+  const pNativity = criteria.acceptsImmigrants
+    ? 1.0
+    : criteria.heritages.length > 0
+      ? getHeritageConditionalNativity(criteria.heritages, stats.heritage, stats.nativity.native_born)
+      : stats.nativity.native_born;
   const pSmoking = criteria.nonSmokerOnly ? stats.lifestyle.non_smoker : 1.0;
 
   const cnOnlyChildKey = criteria.cnOnlyChild ?? "any";

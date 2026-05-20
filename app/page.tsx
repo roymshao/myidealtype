@@ -117,11 +117,21 @@ export default function HomePage() {
         <Stat value="Real data" label="Census · CDC · Pew" />
       </div>
 
-      <footer className="mt-14 text-xs text-slate-400 text-center max-w-md leading-relaxed">
+      <div className="mt-10">
+        <Link
+          href="/algorithm"
+          className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-600 hover:border-slate-500 hover:text-slate-900 transition shadow-sm"
+        >
+          📐 How the algorithm works →
+        </Link>
+      </div>
+
+      <footer className="mt-8 text-xs text-slate-400 text-center max-w-md leading-relaxed">
         Data from US Census Bureau ACS (2022), CDC NHANES (2017–2018), Fed Reserve SCF (2022), and Pew Research Center (2023).
         International data from Statistics Korea (2022), KNHANES (2020–21), Statistics Bureau Japan (2022), Japan NHNS (2019),
         NBS China (2022), CHNS (2018), and CHFS (2021).
-        For entertainment purposes. Probability model assumes independence between variables.
+        For entertainment purposes.{" "}
+        <Link href="/algorithm" className="underline hover:text-slate-600">Methodology</Link>.
       </footer>
     </main>
   );

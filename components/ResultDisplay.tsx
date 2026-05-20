@@ -500,7 +500,10 @@ export default function ResultDisplay({
 
       {/* Breakdown */}
       <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">Probability breakdown</p>
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Probability breakdown</p>
+          <a href="/algorithm" className="text-xs text-slate-400 hover:text-slate-600 transition underline underline-offset-2">How it's calculated →</a>
+        </div>
         <div className="space-y-2.5">
           {breakdownRows.map((row) => (
             <BreakdownRow key={row.label} label={row.label} value={row.value} accent={accent} />
