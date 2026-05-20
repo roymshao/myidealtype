@@ -43,6 +43,7 @@ export default function ResultDisplay({
 }: ResultDisplayProps) {
   const [copied, setCopied] = useState(false);
   const [captionCopied, setCaptionCopied] = useState(false);
+  const [xhsCopied, setXhsCopied] = useState(false);
   const [userPhoto, setUserPhoto] = useState<string | null>(null);
   const photoInputRef = useRef<HTMLInputElement>(null);
 
@@ -413,6 +414,19 @@ export default function ResultDisplay({
     });
   }, [shareTexts.tiktokCaption]);
 
+  const shareToXhs = useCallback(async () => {
+    const xhsCaption = `我测了一下自己的择偶标准，结果只有 ${result.percentage} 的人符合条件 😭 评级：${result.grade.toUpperCase()} — "${personality.title}" ${personality.emoji}\n\n快去测测你的标准有多高！${shareUrl}`;
+    const dataUrl = await generateStoryDataUrl();
+    const a = document.createElement("a");
+    a.href = dataUrl;
+    a.download = "my-ideal-type-xhs.png";
+    a.click();
+    navigator.clipboard.writeText(xhsCaption).then(() => {
+      setXhsCopied(true);
+      setTimeout(() => setXhsCopied(false), 3000);
+    });
+  }, [generateStoryDataUrl, result, personality, shareUrl]);
+
   const breakdownRows: { label: string; value: number }[] = [
     { label: "Age range", value: result.breakdown.age },
     { label: "Height", value: result.breakdown.height },
@@ -562,6 +576,15 @@ export default function ResultDisplay({
             <TikTokIcon /> {captionCopied ? "Copied!" : "TikTok Caption"}
           </button>
 
+          {/* Xiaohongshu */}
+          <button
+            onClick={shareToXhs}
+            className="flex items-center justify-center gap-2 rounded-xl px-3 py-3 text-xs font-semibold text-white transition active:scale-95"
+            style={{ background: "#ff2442" }}
+          >
+            <XhsIcon /> {xhsCopied ? "已复制！" : "小红书"}
+          </button>
+
           {/* Story download */}
           <button
             onClick={() => downloadCard(false)}
@@ -589,6 +612,9 @@ export default function ResultDisplay({
 
         {captionCopied && (
           <p className="mt-2 text-xs text-slate-500 italic">Caption copied — paste it into your TikTok video description!</p>
+        )}
+        {xhsCopied && (
+          <p className="mt-2 text-xs text-slate-500 italic">图片已下载，文案已复制 — 打开小红书发布吧！</p>
         )}
       </div>
 
@@ -640,6 +666,13 @@ function WhatsAppIcon() {
 }
 function TikTokIcon() {
   return <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/></svg>;
+}
+function XhsIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 7.5h-2v1h2v1h-2v1h2v1h-3.5V9h-1v4.5H10.5V9H9V8h7.5v1.5zM8.5 15.5c0 .828-.672 1.5-1.5 1.5s-1.5-.672-1.5-1.5.672-1.5 1.5-1.5 1.5.672 1.5 1.5zm9 0c0 .828-.672 1.5-1.5 1.5s-1.5-.672-1.5-1.5.672-1.5 1.5-1.5 1.5.672 1.5 1.5z"/>
+    </svg>
+  );
 }
 function StoryIcon() {
   return <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>;
