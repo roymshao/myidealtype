@@ -14,19 +14,23 @@ declare global {
   }
 }
 
+const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+
 export default function AdBanner({ slot, format = "auto", className = "" }: AdBannerProps) {
   const ref = useRef<HTMLModElement>(null);
   const initialized = useRef(false);
 
   useEffect(() => {
-    if (initialized.current) return;
+    if (!ADSENSE_ID || initialized.current) return;
     initialized.current = true;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch {
-      // AdSense not loaded in dev
+      // AdSense not loaded
     }
   }, []);
+
+  if (!ADSENSE_ID) return null;
 
   return (
     <div className={`overflow-hidden ${className}`}>
@@ -34,7 +38,7 @@ export default function AdBanner({ slot, format = "auto", className = "" }: AdBa
         ref={ref}
         className="adsbygoogle"
         style={{ display: "block" }}
-        data-ad-client="ca-pub-REPLACE_WITH_YOUR_PUBLISHER_ID"
+        data-ad-client={ADSENSE_ID}
         data-ad-slot={slot}
         data-ad-format={format}
         data-full-width-responsive="true"

@@ -35,17 +35,20 @@ export const metadata: Metadata = {
   ],
 };
 
+const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={geist.variable}>
       <head>
-        {/* Replace REPLACE_WITH_YOUR_PUBLISHER_ID with your actual AdSense publisher ID */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-REPLACE_WITH_YOUR_PUBLISHER_ID"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
+        {ADSENSE_ID && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ID}`}
+            crossOrigin="anonymous"
+            strategy="lazyOnload"
+          />
+        )}
       </head>
       <body className="min-h-screen bg-slate-50 font-sans antialiased">{children}</body>
     </html>
