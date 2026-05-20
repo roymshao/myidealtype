@@ -13,6 +13,8 @@ export interface AgeConditionalData {
   wealth_ratio_by_age: Record<string, number>;
   // P(edu_level | age bucket) — replaces flat unconditional rates
   edu_by_age: Record<string, { any: number; high_school: number; bachelors_plus: number; graduate: number }>;
+  // P(non_smoker | age bucket) — CDC NHANES shows lower smoking in 18–24 and 55–65 cohorts
+  smoking_by_age?: Record<string, number>;
 }
 
 export interface HeritageCorrelationData {
@@ -36,6 +38,7 @@ export interface GenderStats {
   education: { any: number; high_school: number; bachelors_plus: number; graduate: number };
   nativity: { native_born: number; foreign_born: number };
   heritage: Record<string, number>;
+  religion?: Record<string, number>;
   lifestyle: { non_smoker: number };
   heritage_correlations?: Record<string, HeritageCorrelationData>;
   only_child?: Record<string, number>;
@@ -59,6 +62,7 @@ export interface Criteria {
   relationship: string[];
   education: "any" | "high_school" | "bachelors_plus" | "graduate";
   heritages: string[];
+  religions: string[];
   nonSmokerOnly: boolean;
   acceptsImmigrants: boolean;
   cityId: string | null;
@@ -91,6 +95,7 @@ export interface ProbabilityResult {
     heritage: number;
     nativity: number;
     smoking: number;
+    religion?: number;
     only_child?: number;
     tizhinei?: number;
   };
@@ -346,6 +351,11 @@ function getHeritageProbability(selected: string[], data: Record<string, number>
   return Math.min(1.0, selected.reduce((sum, h) => sum + (data[h] ?? 0), 0));
 }
 
+function getReligionProbability(selected: string[], data: Record<string, number> | undefined): number {
+  if (selected.length === 0 || !data) return 1.0;
+  return Math.min(1.0, selected.reduce((sum, r) => sum + (data[r] ?? 0), 0));
+}
+
 function getGrade(p: number): Grade {
   if (p >= 0.20) return "Realistic";
   if (p >= 0.05) return "Selective";
@@ -496,7 +506,14 @@ export function calculate(
     : criteria.heritages.length > 0
       ? getHeritageConditionalNativity(criteria.heritages, stats.heritage, stats.nativity.native_born)
       : stats.nativity.native_born;
-  const pSmoking = criteria.nonSmokerOnly ? stats.lifestyle.non_smoker : 1.0;
+  // Smoking: use age-conditional rates when available (CDC NHANES — younger/older cohorts smoke less)
+  const pSmoking = criteria.nonSmokerOnly
+    ? (cond?.smoking_by_age
+        ? bucketWeightedScalar(bucketWeights, cond.smoking_by_age, stats.lifestyle.non_smoker)
+        : stats.lifestyle.non_smoker)
+    : 1.0;
+
+  const pReligion = getReligionProbability(criteria.religions ?? [], stats.religion);
 
   const cnOnlyChildKey = criteria.cnOnlyChild ?? "any";
   const pOnlyChild = cnOnlyChildKey !== "any" && stats.only_child
@@ -508,7 +525,7 @@ export function calculate(
     ? (stats.work_sector[cnTizhineiKey] ?? 1.0)
     : 1.0;
 
-  const probability = pAge * pHeight * pWeight * pIncome * pWealth * pLooks * pRel * pEdu * pHeritage * pNativity * pSmoking * pOnlyChild * pTizhinei;
+  const probability = pAge * pHeight * pWeight * pIncome * pWealth * pLooks * pRel * pEdu * pHeritage * pNativity * pSmoking * pReligion * pOnlyChild * pTizhinei;
   const estimatedCount = Math.round(stats.total_population * probability);
   const localCount = localPop !== null ? Math.round(localPop * probability) : null;
 
@@ -537,6 +554,7 @@ export function calculate(
       heritage: pHeritage,
       nativity: pNativity,
       smoking: pSmoking,
+      ...(pReligion < 1.0 ? { religion: pReligion } : {}),
       ...(pOnlyChild < 1.0 ? { only_child: pOnlyChild } : {}),
       ...(pTizhinei < 1.0 ? { tizhinei: pTizhinei } : {}),
     },
@@ -555,6 +573,7 @@ export const DEFAULT_MALE_CRITERIA: Criteria = {
   relationship: [],
   education: "any",
   heritages: [],
+  religions: [],
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -570,6 +589,7 @@ export const DEFAULT_FEMALE_CRITERIA: Criteria = {
   relationship: [],
   education: "any",
   heritages: [],
+  religions: [],
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -585,6 +605,7 @@ export const DEFAULT_MALE_CRITERIA_KR: Criteria = {
   relationship: [],
   education: "any",
   heritages: [],
+  religions: [],
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -600,6 +621,7 @@ export const DEFAULT_FEMALE_CRITERIA_KR: Criteria = {
   relationship: [],
   education: "any",
   heritages: [],
+  religions: [],
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -615,6 +637,7 @@ export const DEFAULT_MALE_CRITERIA_JP: Criteria = {
   relationship: [],
   education: "any",
   heritages: [],
+  religions: [],
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -630,6 +653,7 @@ export const DEFAULT_FEMALE_CRITERIA_JP: Criteria = {
   relationship: [],
   education: "any",
   heritages: [],
+  religions: [],
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -645,6 +669,7 @@ export const DEFAULT_MALE_CRITERIA_CN: Criteria = {
   relationship: [],
   education: "any",
   heritages: [],
+  religions: [],
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -662,6 +687,7 @@ export const DEFAULT_FEMALE_CRITERIA_CN: Criteria = {
   relationship: [],
   education: "any",
   heritages: [],
+  religions: [],
   nonSmokerOnly: false,
   acceptsImmigrants: true,
   cityId: null, maxDistanceMiles: 50,
@@ -682,6 +708,7 @@ function euMale(minIncomeK: number): Criteria {
     relationship: [],
     education: "any",
     heritages: [],
+    religions: [],
     nonSmokerOnly: false,
     acceptsImmigrants: true,
     cityId: null, maxDistanceMiles: 50,
@@ -699,6 +726,7 @@ function euFemale(minIncomeK: number): Criteria {
     relationship: [],
     education: "any",
     heritages: [],
+    religions: [],
     nonSmokerOnly: false,
     acceptsImmigrants: true,
     cityId: null, maxDistanceMiles: 50,

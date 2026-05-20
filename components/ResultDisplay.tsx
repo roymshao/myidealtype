@@ -131,7 +131,17 @@ export default function ResultDisplay({
     `${formatHeight(criteria.minHeightIn)}${criteria.maxHeightIn >= (seekerGender === "female" ? 80 : 75) ? "+" : `–${formatHeight(criteria.maxHeightIn)}`}`,
     criteria.minIncomeK > 0 ? `${formatIncome(criteria.minIncomeK)}+ income` : null,
     looksTopPct < 100 ? `Top ${looksTopPct}% looks` : null,
+    (criteria.religions ?? []).length > 0 ? `${(criteria.religions ?? []).length === 1 ? (criteria.religions ?? [])[0].replace(/_/g, " ") : `${(criteria.religions ?? []).length} faiths`}` : null,
   ].filter(Boolean) as string[];
+
+  // Map breakdown keys → human labels for deal-breaker spotlight
+  const BREAKDOWN_LABEL_MAP: Record<string, string> = {
+    age: "Age range", height: "Height", weight: "Weight / fitness",
+    income: "Income", wealth: "Net worth", looks: "Attractiveness",
+    relationship: "Relationship history", education: "Education",
+    heritage: "Ethnicity", nativity: "Locally born", smoking: "Non-smoker",
+    religion: "Religion", only_child: "Only child", tizhinei: "Civil service",
+  };
 
   // ── Story card (9:16) ──────────────────────────────────────────────────────
 
@@ -223,7 +233,26 @@ export default function ResultDisplay({
       chipX += cw + 8;
     }
 
-    const msgY = divY + 105;
+    // Deal-breaker spotlight — find most restrictive filter
+    const dealBreaker = Object.entries(result.breakdown)
+      .filter(([, v]) => typeof v === "number" && v < 0.90 && v > 0)
+      .sort(([, a], [, b]) => (a as number) - (b as number))[0];
+    let chipBottomY = divY + 90;
+    if (dealBreaker) {
+      const [key, val] = dealBreaker;
+      const eliminated = Math.round((1 - (val as number)) * 100);
+      const lbl = BREAKDOWN_LABEL_MAP[key] ?? key;
+      const spotlight = `⚡ ${lbl} alone filters out ${eliminated}% of ${TARGET_LABEL[seekerGender]}`;
+      ctx.fillStyle = "#1e293b";
+      fillRoundedRect(ctx, 60, chipBottomY, W - 120, 26, 8);
+      ctx.fillStyle = "#f59e0b";
+      ctx.font = "bold 11px system-ui, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(spotlight, W / 2, chipBottomY + 17);
+      chipBottomY += 36;
+    }
+
+    const msgY = chipBottomY + 14;
     ctx.textAlign = "center";
     ctx.fillStyle = "#64748b";
     ctx.font = "italic 14px system-ui, sans-serif";
@@ -337,34 +366,47 @@ export default function ResultDisplay({
       { label: "Education",      v: result.breakdown.education },
       { label: "Ethnicity",      v: result.breakdown.heritage },
       { label: "Non-Smoker",     v: result.breakdown.smoking },
+      ...(result.breakdown.religion !== undefined ? [{ label: "Religion", v: result.breakdown.religion }] : []),
       ...(result.breakdown.only_child !== undefined ? [{ label: "独生子女", v: result.breakdown.only_child }] : []),
       ...(result.breakdown.tizhinei !== undefined ? [{ label: "体制内", v: result.breakdown.tizhinei }] : []),
-    ];
+    ].filter(r => r.v < 0.999);
 
     const rowStart = 372, rowGap = 33;
     const labelX = 36, barLeft = 148, barRight = W - 72, barW = barRight - barLeft, pctX = W - 12;
 
     rows.forEach((row, i) => {
       const ry = rowStart + i * rowGap;
+      // Color: green = permissive, amber = moderate, red = restrictive
+      const barFill = row.v >= 0.70 ? "#22c55e" : row.v >= 0.30 ? "#f59e0b" : "#ef4444";
       ctx.textAlign = "left";
-      ctx.fillStyle = "#64748b";
-      ctx.font = "10.5px system-ui, sans-serif";
+      ctx.fillStyle = row.v < 0.30 ? "#fca5a5" : "#64748b";
+      ctx.font = `${row.v < 0.30 ? "bold " : ""}10.5px system-ui, sans-serif`;
       ctx.fillText(row.label, labelX, ry + 8);
       ctx.fillStyle = "#1e293b";
       fillRoundedRect(ctx, barLeft, ry, barW, 8, 4);
-      ctx.fillStyle = accent + "cc";
+      ctx.fillStyle = barFill + "cc";
       fillRoundedRect(ctx, barLeft, ry, Math.max(4, barW * Math.min(1, row.v)), 8, 4);
       ctx.textAlign = "right";
-      ctx.fillStyle = "#64748b";
+      ctx.fillStyle = row.v < 0.30 ? "#fca5a5" : "#64748b";
       ctx.font = "9.5px system-ui, sans-serif";
       ctx.fillText(`${(row.v * 100).toFixed(1)}%`, pctX, ry + 8);
     });
 
-    const msgY = rowStart + rows.length * rowGap + 14;
+    // Roast line (top 1 from generateRoastLines)
+    const topRoast = roastLines[0];
+    let dynamicMsgY = rowStart + rows.length * rowGap + 14;
+    if (topRoast) {
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#64748b";
+      ctx.font = "italic 11px system-ui, sans-serif";
+      wrapText(ctx, `${topRoast.icon} ${topRoast.text}`, W / 2, dynamicMsgY, W - 72, 17);
+      dynamicMsgY += 36;
+    }
+
     ctx.textAlign = "center";
     ctx.fillStyle = "#475569";
     ctx.font = "italic 12px system-ui, sans-serif";
-    wrapText(ctx, `"${result.message}"`, W / 2, msgY, W - 72, 19);
+    wrapText(ctx, `"${result.message}"`, W / 2, dynamicMsgY, W - 72, 19);
 
     ctx.fillStyle = accent;
     fillRoundedRect(ctx, W / 2 - 120, H - 78, 240, 44, 12);
@@ -374,7 +416,7 @@ export default function ResultDisplay({
 
     ctx.textAlign = "left";
     return canvas.toDataURL("image/png");
-  }, [result, criteria, seekerGender, selectedCity, accent, personality, userPhoto, chipLabels]);
+  }, [result, criteria, seekerGender, selectedCity, accent, personality, userPhoto, chipLabels, roastLines]);
 
   // ── Download helpers ───────────────────────────────────────────────────────
 
@@ -439,6 +481,7 @@ export default function ResultDisplay({
     { label: "Ethnicity", value: result.breakdown.heritage },
     { label: "Non-smoker", value: result.breakdown.smoking },
     { label: "Locally born", value: result.breakdown.nativity },
+    ...(result.breakdown.religion !== undefined ? [{ label: "Religion", value: result.breakdown.religion }] : []),
     ...(result.breakdown.only_child !== undefined ? [{ label: "独生子女", value: result.breakdown.only_child }] : []),
     ...(result.breakdown.tizhinei !== undefined ? [{ label: "体制内工作", value: result.breakdown.tizhinei }] : []),
   ].filter(r => r.value < 0.999);

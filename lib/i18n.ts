@@ -25,6 +25,7 @@ const T: Record<string, Record<Lang, string>> = {
   attractiveness:      { en: "Attractiveness Range",         ko: "외모 범위",           ja: "魅力範囲",          zh: "颜值范围" },
   relationship:        { en: "Relationship History",         ko: "연애 이력",           ja: "交際歴",            zh: "感情经历" },
   education:           { en: "Education",                    ko: "학력",               ja: "学歴",              zh: "学历" },
+  religion:            { en: "Religion / Faith",              ko: "종교",               ja: "宗教",              zh: "宗教信仰" },
   smoking:             { en: "Lifestyle — Smoking",          ko: "생활 방식 — 흡연",   ja: "ライフスタイル — 喫煙", zh: "生活习惯 — 吸烟" },
   immigration:         { en: "Immigration Status",           ko: "출생지",              ja: "出生地",            zh: "出生地" },
   location:            { en: "Location & Distance",          ko: "지역 및 거리",        ja: "地域と距離",        zh: "城市 & 距离" },

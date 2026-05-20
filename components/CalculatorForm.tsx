@@ -71,6 +71,19 @@ const NATIVE_BORN_LABEL: Record<string, string> = {
   es: "Spain-born only", it: "Italy-born only", se: "Sweden-born only", pl: "Poland-born only",
 };
 
+const RELIGION_OPTIONS = [
+  { key: "evangelical",        label: "Evangelical" },
+  { key: "mainline_protestant",label: "Protestant" },
+  { key: "catholic",           label: "Catholic" },
+  { key: "other_christian",    label: "Other Christian" },
+  { key: "jewish",             label: "Jewish" },
+  { key: "muslim",             label: "Muslim" },
+  { key: "buddhist",           label: "Buddhist" },
+  { key: "hindu",              label: "Hindu" },
+  { key: "none",               label: "No religion" },
+  { key: "other_faith",        label: "Other faith" },
+];
+
 export default function CalculatorForm({
   stats, seekerGender, defaultCriteria, country = "us", citiesData: citiesDataProp,
 }: CalculatorFormProps) {
@@ -547,6 +560,37 @@ export default function CalculatorForm({
               accent={accent}
               onChange={(h) => set("heritages", h)}
             />
+          </Section>
+        )}
+
+        {/* Religion — US only (Pew Research data) */}
+        {country === "us" && (
+          <Section label={t("religion", lang)} accent={accent}>
+            <p className="text-xs text-slate-500 mb-2">
+              Select all you're open to. Leave blank for no preference. Source: Pew Research 2023.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {RELIGION_OPTIONS.map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => {
+                    const current = criteria.religions ?? [];
+                    set("religions", current.includes(key) ? current.filter(r => r !== key) : [...current, key]);
+                  }}
+                  className="rounded-lg border px-3 py-1.5 text-xs font-medium transition-all"
+                  style={
+                    (criteria.religions ?? []).includes(key)
+                      ? { borderColor: accent, background: accent + "15", color: accent }
+                      : { borderColor: "#e2e8f0", background: "#fff", color: "#64748b" }
+                  }
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            {(criteria.religions ?? []).length === 0 && (
+              <p className="text-xs text-slate-400 mt-2 text-center">No preference selected — any religion qualifies</p>
+            )}
           </Section>
         )}
 
