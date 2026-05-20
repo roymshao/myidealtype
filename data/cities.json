@@ -1,0 +1,2377 @@
+[
+  {
+    "id": "nyc",
+    "name": "New York City",
+    "state": "NY",
+    "aliases": [
+      "New York",
+      "NYC",
+      "Manhattan"
+    ],
+    "pop_male": 5800066,
+    "pop_female": 6061009,
+    "income_ratio": 1.12
+  },
+  {
+    "id": "la",
+    "name": "Los Angeles",
+    "state": "CA",
+    "aliases": [
+      "LA",
+      "Los Angeles-Long Beach"
+    ],
+    "pop_male": 3873173,
+    "pop_female": 4047426,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "chicago",
+    "name": "Chicago",
+    "state": "IL",
+    "aliases": [
+      "Chicagoland"
+    ],
+    "pop_male": 2775135,
+    "pop_female": 2899988,
+    "income_ratio": 1.02
+  },
+  {
+    "id": "dallas",
+    "name": "Dallas",
+    "state": "TX",
+    "aliases": [
+      "DFW",
+      "Dallas-Fort Worth"
+    ],
+    "pop_male": 2276671,
+    "pop_female": 2379098,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "houston",
+    "name": "Houston",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 2153619,
+    "pop_female": 2250510,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "dc",
+    "name": "Washington",
+    "state": "DC",
+    "aliases": [
+      "DC",
+      "Washington DC",
+      "DMV"
+    ],
+    "pop_male": 1873407,
+    "pop_female": 1957691,
+    "income_ratio": 1.3
+  },
+  {
+    "id": "miami",
+    "name": "Miami",
+    "state": "FL",
+    "aliases": [
+      "South Florida"
+    ],
+    "pop_male": 1800987,
+    "pop_female": 1882013,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "philadelphia",
+    "name": "Philadelphia",
+    "state": "PA",
+    "aliases": [
+      "Philly"
+    ],
+    "pop_male": 1832298,
+    "pop_female": 1914733,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "atlanta",
+    "name": "Atlanta",
+    "state": "GA",
+    "aliases": [],
+    "pop_male": 1802664,
+    "pop_female": 1883766,
+    "income_ratio": 1.02
+  },
+  {
+    "id": "phoenix",
+    "name": "Phoenix",
+    "state": "AZ",
+    "aliases": [],
+    "pop_male": 1467652,
+    "pop_female": 1533681,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "boston",
+    "name": "Boston",
+    "state": "MA",
+    "aliases": [],
+    "pop_male": 1449733,
+    "pop_female": 1514956,
+    "income_ratio": 1.2
+  },
+  {
+    "id": "riverside",
+    "name": "Riverside",
+    "state": "CA",
+    "aliases": [
+      "Inland Empire"
+    ],
+    "pop_male": 1365221,
+    "pop_female": 1426642,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "seattle",
+    "name": "Seattle",
+    "state": "WA",
+    "aliases": [],
+    "pop_male": 1188139,
+    "pop_female": 1241593,
+    "income_ratio": 1.35
+  },
+  {
+    "id": "san_francisco",
+    "name": "San Francisco",
+    "state": "CA",
+    "aliases": [
+      "SF",
+      "Bay Area",
+      "San Jose"
+    ],
+    "pop_male": 1388311,
+    "pop_female": 1450771,
+    "income_ratio": 1.5
+  },
+  {
+    "id": "detroit",
+    "name": "Detroit",
+    "state": "MI",
+    "aliases": [],
+    "pop_male": 1280751,
+    "pop_female": 1338372,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "minneapolis",
+    "name": "Minneapolis",
+    "state": "MN",
+    "aliases": [
+      "Twin Cities"
+    ],
+    "pop_male": 1089107,
+    "pop_female": 1138105,
+    "income_ratio": 1.07
+  },
+  {
+    "id": "san_diego",
+    "name": "San Diego",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 964133,
+    "pop_female": 1007509,
+    "income_ratio": 1.08
+  },
+  {
+    "id": "tampa",
+    "name": "Tampa",
+    "state": "FL",
+    "aliases": [
+      "Tampa Bay"
+    ],
+    "pop_male": 944605,
+    "pop_female": 987103,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "denver",
+    "name": "Denver",
+    "state": "CO",
+    "aliases": [],
+    "pop_male": 869585,
+    "pop_female": 908708,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "st_louis",
+    "name": "St. Louis",
+    "state": "MO",
+    "aliases": [
+      "Saint Louis"
+    ],
+    "pop_male": 823380,
+    "pop_female": 860423,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "baltimore",
+    "name": "Baltimore",
+    "state": "MD",
+    "aliases": [],
+    "pop_male": 832765,
+    "pop_female": 870231,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "portland",
+    "name": "Portland",
+    "state": "OR",
+    "aliases": [],
+    "pop_male": 736907,
+    "pop_female": 770060,
+    "income_ratio": 1.08
+  },
+  {
+    "id": "sacramento",
+    "name": "Sacramento",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 703098,
+    "pop_female": 734731,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "san_antonio",
+    "name": "San Antonio",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 763365,
+    "pop_female": 797708,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "orlando",
+    "name": "Orlando",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 792489,
+    "pop_female": 828143,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "pittsburgh",
+    "name": "Pittsburgh",
+    "state": "PA",
+    "aliases": [],
+    "pop_male": 721134,
+    "pop_female": 753578,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "raleigh",
+    "name": "Raleigh",
+    "state": "NC",
+    "aliases": [],
+    "pop_male": 418529,
+    "pop_female": 437358,
+    "income_ratio": 1.12
+  },
+  {
+    "id": "austin",
+    "name": "Austin",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 669941,
+    "pop_female": 700082,
+    "income_ratio": 1.2
+  },
+  {
+    "id": "charlotte",
+    "name": "Charlotte",
+    "state": "NC",
+    "aliases": [],
+    "pop_male": 792574,
+    "pop_female": 828232,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "cincinnati",
+    "name": "Cincinnati",
+    "state": "OH",
+    "aliases": [],
+    "pop_male": 663973,
+    "pop_female": 693845,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "las_vegas",
+    "name": "Las Vegas",
+    "state": "NV",
+    "aliases": [],
+    "pop_male": 664686,
+    "pop_female": 694590,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "kansas_city",
+    "name": "Kansas City",
+    "state": "MO",
+    "aliases": [],
+    "pop_male": 649476,
+    "pop_female": 678696,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "columbus",
+    "name": "Columbus",
+    "state": "OH",
+    "aliases": [],
+    "pop_male": 627561,
+    "pop_female": 655795,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "indianapolis",
+    "name": "Indianapolis",
+    "state": "IN",
+    "aliases": [
+      "Indy"
+    ],
+    "pop_male": 619379,
+    "pop_female": 647245,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "cleveland",
+    "name": "Cleveland",
+    "state": "OH",
+    "aliases": [],
+    "pop_male": 568223,
+    "pop_female": 593787,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "virginia_beach",
+    "name": "Virginia Beach",
+    "state": "VA",
+    "aliases": [
+      "Norfolk",
+      "Hampton Roads"
+    ],
+    "pop_male": 539951,
+    "pop_female": 564243,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "jacksonville",
+    "name": "Jacksonville",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 509031,
+    "pop_female": 531932,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "new_orleans",
+    "name": "New Orleans",
+    "state": "LA",
+    "aliases": [
+      "NOLA"
+    ],
+    "pop_male": 373159,
+    "pop_female": 389948,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "memphis",
+    "name": "Memphis",
+    "state": "TN",
+    "aliases": [],
+    "pop_male": 393668,
+    "pop_female": 411379,
+    "income_ratio": 0.85
+  },
+  {
+    "id": "oklahoma_city",
+    "name": "Oklahoma City",
+    "state": "OK",
+    "aliases": [
+      "OKC"
+    ],
+    "pop_male": 418299,
+    "pop_female": 437118,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "louisville",
+    "name": "Louisville",
+    "state": "KY",
+    "aliases": [],
+    "pop_male": 404838,
+    "pop_female": 423051,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "hartford",
+    "name": "Hartford",
+    "state": "CT",
+    "aliases": [],
+    "pop_male": 355713,
+    "pop_female": 371716,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "richmond",
+    "name": "Richmond",
+    "state": "VA",
+    "aliases": [],
+    "pop_male": 391962,
+    "pop_female": 409596,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "buffalo",
+    "name": "Buffalo",
+    "state": "NY",
+    "aliases": [],
+    "pop_male": 355327,
+    "pop_female": 371313,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "providence",
+    "name": "Providence",
+    "state": "RI",
+    "aliases": [],
+    "pop_male": 491908,
+    "pop_female": 514039,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "salt_lake_city",
+    "name": "Salt Lake City",
+    "state": "UT",
+    "aliases": [
+      "SLC"
+    ],
+    "pop_male": 369078,
+    "pop_female": 385683,
+    "income_ratio": 1.02
+  },
+  {
+    "id": "rochester",
+    "name": "Rochester",
+    "state": "NY",
+    "aliases": [],
+    "pop_male": 318617,
+    "pop_female": 332951,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "birmingham",
+    "name": "Birmingham",
+    "state": "AL",
+    "aliases": [],
+    "pop_male": 327226,
+    "pop_female": 341948,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "fresno",
+    "name": "Fresno",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 295939,
+    "pop_female": 309253,
+    "income_ratio": 0.78
+  },
+  {
+    "id": "grand_rapids",
+    "name": "Grand Rapids",
+    "state": "MI",
+    "aliases": [],
+    "pop_male": 324831,
+    "pop_female": 339445,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "bridgeport",
+    "name": "Bridgeport-Stamford",
+    "state": "CT",
+    "aliases": [
+      "Bridgeport",
+      "Stamford"
+    ],
+    "pop_male": 285552,
+    "pop_female": 298398,
+    "income_ratio": 1.22
+  },
+  {
+    "id": "nashville",
+    "name": "Nashville",
+    "state": "TN",
+    "aliases": [],
+    "pop_male": 591603,
+    "pop_female": 618219,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "tucson",
+    "name": "Tucson",
+    "state": "AZ",
+    "aliases": [],
+    "pop_male": 306143,
+    "pop_female": 319917,
+    "income_ratio": 0.85
+  },
+  {
+    "id": "tulsa",
+    "name": "Tulsa",
+    "state": "OK",
+    "aliases": [],
+    "pop_male": 298884,
+    "pop_female": 312331,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "omaha",
+    "name": "Omaha",
+    "state": "NE",
+    "aliases": [],
+    "pop_male": 283648,
+    "pop_female": 296409,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "albuquerque",
+    "name": "Albuquerque",
+    "state": "NM",
+    "aliases": [],
+    "pop_male": 268733,
+    "pop_female": 280823,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "knoxville",
+    "name": "Knoxville",
+    "state": "TN",
+    "aliases": [],
+    "pop_male": 260964,
+    "pop_female": 272704,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "greenville_sc",
+    "name": "Greenville",
+    "state": "SC",
+    "aliases": [],
+    "pop_male": 270068,
+    "pop_female": 282218,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "bakersfield",
+    "name": "Bakersfield",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 264081,
+    "pop_female": 275962,
+    "income_ratio": 0.78
+  },
+  {
+    "id": "el_paso",
+    "name": "El Paso",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 254923,
+    "pop_female": 266392,
+    "income_ratio": 0.78
+  },
+  {
+    "id": "baton_rouge",
+    "name": "Baton Rouge",
+    "state": "LA",
+    "aliases": [],
+    "pop_male": 251246,
+    "pop_female": 262550,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "columbia_sc",
+    "name": "Columbia",
+    "state": "SC",
+    "aliases": [],
+    "pop_male": 244386,
+    "pop_female": 255381,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "cape_coral",
+    "name": "Cape Coral-Fort Myers",
+    "state": "FL",
+    "aliases": [
+      "Cape Coral",
+      "Fort Myers"
+    ],
+    "pop_male": 230957,
+    "pop_female": 241348,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "mcallen",
+    "name": "McAllen",
+    "state": "TX",
+    "aliases": [
+      "Rio Grande Valley"
+    ],
+    "pop_male": 255487,
+    "pop_female": 266981,
+    "income_ratio": 0.7
+  },
+  {
+    "id": "dayton",
+    "name": "Dayton",
+    "state": "OH",
+    "aliases": [],
+    "pop_male": 238842,
+    "pop_female": 249587,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "akron",
+    "name": "Akron",
+    "state": "OH",
+    "aliases": [],
+    "pop_male": 206408,
+    "pop_female": 215695,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "spokane",
+    "name": "Spokane",
+    "state": "WA",
+    "aliases": [],
+    "pop_male": 172669,
+    "pop_female": 180437,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "worcester",
+    "name": "Worcester",
+    "state": "MA",
+    "aliases": [],
+    "pop_male": 287941,
+    "pop_female": 300896,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "albany",
+    "name": "Albany",
+    "state": "NY",
+    "aliases": [],
+    "pop_male": 263843,
+    "pop_female": 275714,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "des_moines",
+    "name": "Des Moines",
+    "state": "IA",
+    "aliases": [],
+    "pop_male": 203691,
+    "pop_female": 212855,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "boise",
+    "name": "Boise",
+    "state": "ID",
+    "aliases": [],
+    "pop_male": 232761,
+    "pop_female": 243233,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "jackson_ms",
+    "name": "Jackson",
+    "state": "MS",
+    "aliases": [],
+    "pop_male": 173686,
+    "pop_female": 181500,
+    "income_ratio": 0.75
+  },
+  {
+    "id": "little_rock",
+    "name": "Little Rock",
+    "state": "AR",
+    "aliases": [],
+    "pop_male": 219472,
+    "pop_female": 229346,
+    "income_ratio": 0.85
+  },
+  {
+    "id": "madison",
+    "name": "Madison",
+    "state": "WI",
+    "aliases": [],
+    "pop_male": 199746,
+    "pop_female": 208732,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "colorado_springs",
+    "name": "Colorado Springs",
+    "state": "CO",
+    "aliases": [],
+    "pop_male": 222844,
+    "pop_female": 232869,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "wichita",
+    "name": "Wichita",
+    "state": "KS",
+    "aliases": [],
+    "pop_male": 189129,
+    "pop_female": 197637,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "provo",
+    "name": "Provo",
+    "state": "UT",
+    "aliases": [],
+    "pop_male": 197921,
+    "pop_female": 206826,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "sarasota",
+    "name": "Sarasota",
+    "state": "FL",
+    "aliases": [
+      "North Port",
+      "North Port-Sarasota"
+    ],
+    "pop_male": 231786,
+    "pop_female": 242214,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "lakeland",
+    "name": "Lakeland",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 222228,
+    "pop_female": 232226,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "daytona_beach",
+    "name": "Daytona Beach",
+    "state": "FL",
+    "aliases": [
+      "Deltona"
+    ],
+    "pop_male": 209781,
+    "pop_female": 219219,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "honolulu",
+    "name": "Honolulu",
+    "state": "HI",
+    "aliases": [
+      "Hawaii",
+      "Oahu"
+    ],
+    "pop_male": 298243,
+    "pop_female": 311661,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "allentown",
+    "name": "Allentown",
+    "state": "PA",
+    "aliases": [
+      "Bethlehem"
+    ],
+    "pop_male": 255129,
+    "pop_female": 266608,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "winston_salem",
+    "name": "Winston-Salem",
+    "state": "NC",
+    "aliases": [],
+    "pop_male": 196260,
+    "pop_female": 205090,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "durham",
+    "name": "Durham",
+    "state": "NC",
+    "aliases": [
+      "Research Triangle",
+      "Chapel Hill"
+    ],
+    "pop_male": 168705,
+    "pop_female": 176295,
+    "income_ratio": 1.15
+  },
+  {
+    "id": "stockton",
+    "name": "Stockton",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 228627,
+    "pop_female": 238913,
+    "income_ratio": 0.78
+  },
+  {
+    "id": "chattanooga",
+    "name": "Chattanooga",
+    "state": "TN",
+    "aliases": [],
+    "pop_male": 171019,
+    "pop_female": 178713,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "syracuse",
+    "name": "Syracuse",
+    "state": "NY",
+    "aliases": [],
+    "pop_male": 188669,
+    "pop_female": 197157,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "toledo",
+    "name": "Toledo",
+    "state": "OH",
+    "aliases": [],
+    "pop_male": 187200,
+    "pop_female": 195622,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "lansing",
+    "name": "Lansing",
+    "state": "MI",
+    "aliases": [],
+    "pop_male": 162447,
+    "pop_female": 169756,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "modesto",
+    "name": "Modesto",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 163078,
+    "pop_female": 170415,
+    "income_ratio": 0.78
+  },
+  {
+    "id": "scranton",
+    "name": "Scranton",
+    "state": "PA",
+    "aliases": [
+      "Wilkes-Barre"
+    ],
+    "pop_male": 162687,
+    "pop_female": 170007,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "augusta_ga",
+    "name": "Augusta",
+    "state": "GA",
+    "aliases": [],
+    "pop_male": 176117,
+    "pop_female": 184041,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "fayetteville_ar",
+    "name": "Fayetteville",
+    "state": "AR",
+    "aliases": [
+      "Bentonville",
+      "Northwest Arkansas"
+    ],
+    "pop_male": 163862,
+    "pop_female": 171234,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "fayetteville_nc",
+    "name": "Fayetteville",
+    "state": "NC",
+    "aliases": [],
+    "pop_male": 112509,
+    "pop_female": 117571,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "port_st_lucie",
+    "name": "Port St. Lucie",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 143920,
+    "pop_female": 150395,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "shreveport",
+    "name": "Shreveport",
+    "state": "LA",
+    "aliases": [],
+    "pop_male": 129064,
+    "pop_female": 134870,
+    "income_ratio": 0.82
+  },
+  {
+    "id": "harrisburg",
+    "name": "Harrisburg",
+    "state": "PA",
+    "aliases": [],
+    "pop_male": 174006,
+    "pop_female": 181834,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "springfield_mo",
+    "name": "Springfield",
+    "state": "MO",
+    "aliases": [],
+    "pop_male": 139777,
+    "pop_female": 146065,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "oxnard",
+    "name": "Oxnard-Ventura",
+    "state": "CA",
+    "aliases": [
+      "Oxnard",
+      "Ventura"
+    ],
+    "pop_male": 248218,
+    "pop_female": 259385,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "greensboro",
+    "name": "Greensboro",
+    "state": "NC",
+    "aliases": [],
+    "pop_male": 228800,
+    "pop_female": 239094,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "salinas",
+    "name": "Salinas",
+    "state": "CA",
+    "aliases": [
+      "Monterey"
+    ],
+    "pop_male": 127868,
+    "pop_female": 133621,
+    "income_ratio": 0.82
+  },
+  {
+    "id": "rockford",
+    "name": "Rockford",
+    "state": "IL",
+    "aliases": [],
+    "pop_male": 99098,
+    "pop_female": 103556,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "visalia",
+    "name": "Visalia",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 138353,
+    "pop_female": 144577,
+    "income_ratio": 0.75
+  },
+  {
+    "id": "anchorage",
+    "name": "Anchorage",
+    "state": "AK",
+    "aliases": [],
+    "pop_male": 117297,
+    "pop_female": 122574,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "huntsville",
+    "name": "Huntsville",
+    "state": "AL",
+    "aliases": [],
+    "pop_male": 145119,
+    "pop_female": 151648,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "killeen",
+    "name": "Killeen-Temple",
+    "state": "TX",
+    "aliases": [
+      "Killeen",
+      "Temple"
+    ],
+    "pop_male": 137864,
+    "pop_female": 144066,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "myrtle_beach",
+    "name": "Myrtle Beach",
+    "state": "SC",
+    "aliases": [],
+    "pop_male": 146726,
+    "pop_female": 153327,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "santa_rosa",
+    "name": "Santa Rosa",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 144303,
+    "pop_female": 150795,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "new_haven",
+    "name": "New Haven",
+    "state": "CT",
+    "aliases": [],
+    "pop_male": 252611,
+    "pop_female": 263976,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "pensacola",
+    "name": "Pensacola",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 149806,
+    "pop_female": 156546,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "asheville",
+    "name": "Asheville",
+    "state": "NC",
+    "aliases": [],
+    "pop_male": 141139,
+    "pop_female": 147489,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "montgomery",
+    "name": "Montgomery",
+    "state": "AL",
+    "aliases": [],
+    "pop_male": 110440,
+    "pop_female": 115408,
+    "income_ratio": 0.8
+  },
+  {
+    "id": "reno",
+    "name": "Reno",
+    "state": "NV",
+    "aliases": [],
+    "pop_male": 140897,
+    "pop_female": 147235,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "flint",
+    "name": "Flint",
+    "state": "MI",
+    "aliases": [],
+    "pop_male": 117768,
+    "pop_female": 123066,
+    "income_ratio": 0.78
+  },
+  {
+    "id": "charleston_sc",
+    "name": "Charleston",
+    "state": "SC",
+    "aliases": [],
+    "pop_male": 234720,
+    "pop_female": 245280,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "beaumont",
+    "name": "Beaumont",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 116709,
+    "pop_female": 121960,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "lexington",
+    "name": "Lexington",
+    "state": "KY",
+    "aliases": [],
+    "pop_male": 151632,
+    "pop_female": 158454,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "trenton",
+    "name": "Trenton",
+    "state": "NJ",
+    "aliases": [],
+    "pop_male": 113233,
+    "pop_female": 118328,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "peoria",
+    "name": "Peoria",
+    "state": "IL",
+    "aliases": [],
+    "pop_male": 108104,
+    "pop_female": 112967,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "savannah",
+    "name": "Savannah",
+    "state": "GA",
+    "aliases": [],
+    "pop_male": 118768,
+    "pop_female": 124111,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "mobile",
+    "name": "Mobile",
+    "state": "AL",
+    "aliases": [],
+    "pop_male": 127178,
+    "pop_female": 132900,
+    "income_ratio": 0.82
+  },
+  {
+    "id": "lubbock",
+    "name": "Lubbock",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 98452,
+    "pop_female": 102881,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "corpus_christi",
+    "name": "Corpus Christi",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 126586,
+    "pop_female": 132281,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "fort_wayne",
+    "name": "Fort Wayne",
+    "state": "IN",
+    "aliases": [],
+    "pop_male": 121751,
+    "pop_female": 127228,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "ogden",
+    "name": "Ogden",
+    "state": "UT",
+    "aliases": [],
+    "pop_male": 207367,
+    "pop_female": 216696,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "springfield_ma",
+    "name": "Springfield",
+    "state": "MA",
+    "aliases": [],
+    "pop_male": 204953,
+    "pop_female": 214173,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "tallahassee",
+    "name": "Tallahassee",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 112872,
+    "pop_female": 117950,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "lincoln",
+    "name": "Lincoln",
+    "state": "NE",
+    "aliases": [],
+    "pop_male": 99674,
+    "pop_female": 104159,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "gainesville_fl",
+    "name": "Gainesville",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 98669,
+    "pop_female": 103108,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "ann_arbor",
+    "name": "Ann Arbor",
+    "state": "MI",
+    "aliases": [],
+    "pop_male": 108558,
+    "pop_female": 113442,
+    "income_ratio": 1.08
+  },
+  {
+    "id": "scottsdale",
+    "name": "Scottsdale",
+    "state": "AZ",
+    "aliases": [],
+    "pop_male": 76284,
+    "pop_female": 79716,
+    "income_ratio": 1.2
+  },
+  {
+    "id": "mesa",
+    "name": "Mesa",
+    "state": "AZ",
+    "aliases": [],
+    "pop_male": 149634,
+    "pop_female": 156366,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "chandler",
+    "name": "Chandler",
+    "state": "AZ",
+    "aliases": [],
+    "pop_male": 82152,
+    "pop_female": 85848,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "gilbert",
+    "name": "Gilbert",
+    "state": "AZ",
+    "aliases": [],
+    "pop_male": 79218,
+    "pop_female": 82782,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "glendale_az",
+    "name": "Glendale",
+    "state": "AZ",
+    "aliases": [],
+    "pop_male": 73350,
+    "pop_female": 76650,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "tempe",
+    "name": "Tempe",
+    "state": "AZ",
+    "aliases": [],
+    "pop_male": 57213,
+    "pop_female": 59787,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "fort_lauderdale",
+    "name": "Fort Lauderdale",
+    "state": "FL",
+    "aliases": [
+      "Broward County"
+    ],
+    "pop_male": 586800,
+    "pop_female": 613200,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "west_palm_beach",
+    "name": "West Palm Beach",
+    "state": "FL",
+    "aliases": [
+      "Palm Beach"
+    ],
+    "pop_male": 439152,
+    "pop_female": 458910,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "st_pete",
+    "name": "St. Petersburg",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 77751,
+    "pop_female": 81249,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "clearwater",
+    "name": "Clearwater",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 34328,
+    "pop_female": 35872,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "kissimmee",
+    "name": "Kissimmee",
+    "state": "FL",
+    "aliases": [],
+    "pop_male": 45477,
+    "pop_female": 47523,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "columbus_ga",
+    "name": "Columbus",
+    "state": "GA",
+    "aliases": [],
+    "pop_male": 92714,
+    "pop_female": 96886,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "macon",
+    "name": "Macon",
+    "state": "GA",
+    "aliases": [],
+    "pop_male": 68069,
+    "pop_female": 71131,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "clarksville",
+    "name": "Clarksville",
+    "state": "TN",
+    "aliases": [],
+    "pop_male": 94181,
+    "pop_female": 98419,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "johnson_city",
+    "name": "Johnson City",
+    "state": "TN",
+    "aliases": [],
+    "pop_male": 61614,
+    "pop_female": 64386,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "jackson_tn",
+    "name": "Jackson",
+    "state": "TN",
+    "aliases": [],
+    "pop_male": 50758,
+    "pop_female": 53042,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "lafayette_la",
+    "name": "Lafayette",
+    "state": "LA",
+    "aliases": [],
+    "pop_male": 149047,
+    "pop_female": 155753,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "lake_charles",
+    "name": "Lake Charles",
+    "state": "LA",
+    "aliases": [],
+    "pop_male": 63081,
+    "pop_female": 65919,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "gulfport",
+    "name": "Gulfport-Biloxi",
+    "state": "MS",
+    "aliases": [
+      "Gulfport",
+      "Biloxi"
+    ],
+    "pop_male": 117360,
+    "pop_female": 122640,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "hattiesburg",
+    "name": "Hattiesburg",
+    "state": "MS",
+    "aliases": [],
+    "pop_male": 49291,
+    "pop_female": 51509,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "tuscaloosa",
+    "name": "Tuscaloosa",
+    "state": "AL",
+    "aliases": [],
+    "pop_male": 77751,
+    "pop_female": 81249,
+    "income_ratio": 0.85
+  },
+  {
+    "id": "dothan",
+    "name": "Dothan",
+    "state": "AL",
+    "aliases": [],
+    "pop_male": 43717,
+    "pop_female": 45683,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "spartanburg",
+    "name": "Spartanburg",
+    "state": "SC",
+    "aliases": [],
+    "pop_male": 102103,
+    "pop_female": 106697,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "charleston_wv",
+    "name": "Charleston",
+    "state": "WV",
+    "aliases": [],
+    "pop_male": 63081,
+    "pop_female": 65919,
+    "income_ratio": 0.85
+  },
+  {
+    "id": "huntington_wv",
+    "name": "Huntington",
+    "state": "WV",
+    "aliases": [],
+    "pop_male": 106211,
+    "pop_female": 110989,
+    "income_ratio": 0.8
+  },
+  {
+    "id": "roanoke",
+    "name": "Roanoke",
+    "state": "VA",
+    "aliases": [],
+    "pop_male": 92128,
+    "pop_female": 96272,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "annapolis",
+    "name": "Annapolis",
+    "state": "MD",
+    "aliases": [],
+    "pop_male": 53692,
+    "pop_female": 56108,
+    "income_ratio": 1.15
+  },
+  {
+    "id": "frederick",
+    "name": "Frederick",
+    "state": "MD",
+    "aliases": [],
+    "pop_male": 83619,
+    "pop_female": 87381,
+    "income_ratio": 1.15
+  },
+  {
+    "id": "wilmington_de",
+    "name": "Wilmington",
+    "state": "DE",
+    "aliases": [],
+    "pop_male": 227385,
+    "pop_female": 237615,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "reading_pa",
+    "name": "Reading",
+    "state": "PA",
+    "aliases": [],
+    "pop_male": 127336,
+    "pop_female": 133064,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "lancaster_pa",
+    "name": "Lancaster",
+    "state": "PA",
+    "aliases": [],
+    "pop_male": 161957,
+    "pop_female": 169243,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "york_pa",
+    "name": "York",
+    "state": "PA",
+    "aliases": [],
+    "pop_male": 132030,
+    "pop_female": 137970,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "erie_pa",
+    "name": "Erie",
+    "state": "PA",
+    "aliases": [],
+    "pop_male": 79511,
+    "pop_female": 83089,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "lowell",
+    "name": "Lowell",
+    "state": "MA",
+    "aliases": [],
+    "pop_male": 102690,
+    "pop_female": 107310,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "manchester_nh",
+    "name": "Manchester",
+    "state": "NH",
+    "aliases": [
+      "Nashua"
+    ],
+    "pop_male": 123228,
+    "pop_female": 128772,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "portland_me",
+    "name": "Portland",
+    "state": "ME",
+    "aliases": [],
+    "pop_male": 160783,
+    "pop_female": 168017,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "bangor_me",
+    "name": "Bangor",
+    "state": "ME",
+    "aliases": [],
+    "pop_male": 45184,
+    "pop_female": 47216,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "binghamton",
+    "name": "Binghamton",
+    "state": "NY",
+    "aliases": [],
+    "pop_male": 69829,
+    "pop_female": 72971,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "utica",
+    "name": "Utica",
+    "state": "NY",
+    "aliases": [],
+    "pop_male": 86553,
+    "pop_female": 90447,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "poughkeepsie",
+    "name": "Poughkeepsie",
+    "state": "NY",
+    "aliases": [],
+    "pop_male": 197549,
+    "pop_female": 206436,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "canton",
+    "name": "Canton",
+    "state": "OH",
+    "aliases": [],
+    "pop_male": 117360,
+    "pop_female": 122640,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "south_bend",
+    "name": "South Bend",
+    "state": "IN",
+    "aliases": [],
+    "pop_male": 94768,
+    "pop_female": 99032,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "evansville",
+    "name": "Evansville",
+    "state": "IN",
+    "aliases": [],
+    "pop_male": 91834,
+    "pop_female": 95966,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "green_bay",
+    "name": "Green Bay",
+    "state": "WI",
+    "aliases": [],
+    "pop_male": 95648,
+    "pop_female": 99952,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "appleton",
+    "name": "Appleton",
+    "state": "WI",
+    "aliases": [],
+    "pop_male": 70709,
+    "pop_female": 73891,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "milwaukee",
+    "name": "Milwaukee",
+    "state": "WI",
+    "aliases": [],
+    "pop_male": 459752,
+    "pop_female": 480436,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "duluth",
+    "name": "Duluth",
+    "state": "MN",
+    "aliases": [],
+    "pop_male": 85086,
+    "pop_female": 88914,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "rochester_mn",
+    "name": "Rochester",
+    "state": "MN",
+    "aliases": [],
+    "pop_male": 66015,
+    "pop_female": 68985,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "fargo",
+    "name": "Fargo",
+    "state": "ND",
+    "aliases": [],
+    "pop_male": 74148,
+    "pop_female": 77484,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "sioux_falls",
+    "name": "Sioux Falls",
+    "state": "SD",
+    "aliases": [],
+    "pop_male": 79665,
+    "pop_female": 83249,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "cedar_rapids",
+    "name": "Cedar Rapids",
+    "state": "IA",
+    "aliases": [],
+    "pop_male": 79805,
+    "pop_female": 83395,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "iowa_city",
+    "name": "Iowa City",
+    "state": "IA",
+    "aliases": [],
+    "pop_male": 51345,
+    "pop_female": 53655,
+    "income_ratio": 0.98
+  },
+  {
+    "id": "topeka",
+    "name": "Topeka",
+    "state": "KS",
+    "aliases": [],
+    "pop_male": 68362,
+    "pop_female": 71438,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "joplin",
+    "name": "Joplin",
+    "state": "MO",
+    "aliases": [],
+    "pop_male": 55159,
+    "pop_female": 57641,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "columbia_mo",
+    "name": "Columbia",
+    "state": "MO",
+    "aliases": [],
+    "pop_male": 62201,
+    "pop_female": 64999,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "rapid_city",
+    "name": "Rapid City",
+    "state": "SD",
+    "aliases": [],
+    "pop_male": 44597,
+    "pop_female": 46603,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "billings",
+    "name": "Billings",
+    "state": "MT",
+    "aliases": [],
+    "pop_male": 53692,
+    "pop_female": 56108,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "missoula",
+    "name": "Missoula",
+    "state": "MT",
+    "aliases": [],
+    "pop_male": 37262,
+    "pop_female": 38938,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "bozeman",
+    "name": "Bozeman",
+    "state": "MT",
+    "aliases": [],
+    "pop_male": 38142,
+    "pop_female": 39858,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "cheyenne",
+    "name": "Cheyenne",
+    "state": "WY",
+    "aliases": [],
+    "pop_male": 29340,
+    "pop_female": 30660,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "boise2",
+    "name": "Boise",
+    "state": "ID",
+    "aliases": [],
+    "pop_male": 232761,
+    "pop_female": 243233,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "idaho_falls",
+    "name": "Idaho Falls",
+    "state": "ID",
+    "aliases": [],
+    "pop_male": 45477,
+    "pop_female": 47523,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "flagstaff",
+    "name": "Flagstaff",
+    "state": "AZ",
+    "aliases": [],
+    "pop_male": 42543,
+    "pop_female": 44457,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "santa_fe",
+    "name": "Santa Fe",
+    "state": "NM",
+    "aliases": [],
+    "pop_male": 61614,
+    "pop_female": 64386,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "las_cruces",
+    "name": "Las Cruces",
+    "state": "NM",
+    "aliases": [],
+    "pop_male": 64548,
+    "pop_female": 67452,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "pueblo",
+    "name": "Pueblo",
+    "state": "CO",
+    "aliases": [],
+    "pop_male": 48998,
+    "pop_female": 51202,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "greeley",
+    "name": "Greeley",
+    "state": "CO",
+    "aliases": [],
+    "pop_male": 96822,
+    "pop_female": 101178,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "boulder",
+    "name": "Boulder",
+    "state": "CO",
+    "aliases": [],
+    "pop_male": 96822,
+    "pop_female": 101178,
+    "income_ratio": 1.25
+  },
+  {
+    "id": "fort_collins",
+    "name": "Fort Collins",
+    "state": "CO",
+    "aliases": [],
+    "pop_male": 105741,
+    "pop_female": 110499,
+    "income_ratio": 1.08
+  },
+  {
+    "id": "st_george",
+    "name": "St. George",
+    "state": "UT",
+    "aliases": [],
+    "pop_male": 56626,
+    "pop_female": 59174,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "medford",
+    "name": "Medford",
+    "state": "OR",
+    "aliases": [],
+    "pop_male": 66015,
+    "pop_female": 68985,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "salem_or",
+    "name": "Salem",
+    "state": "OR",
+    "aliases": [],
+    "pop_male": 126749,
+    "pop_female": 132451,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "bend",
+    "name": "Bend",
+    "state": "OR",
+    "aliases": [],
+    "pop_male": 58387,
+    "pop_female": 61013,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "redding",
+    "name": "Redding",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 53692,
+    "pop_female": 56108,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "chico",
+    "name": "Chico",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 64548,
+    "pop_female": 67452,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "stockton2",
+    "name": "Stockton",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 228627,
+    "pop_female": 238913,
+    "income_ratio": 0.78
+  },
+  {
+    "id": "merced",
+    "name": "Merced",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 82152,
+    "pop_female": 85848,
+    "income_ratio": 0.72
+  },
+  {
+    "id": "napa",
+    "name": "Napa",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 40783,
+    "pop_female": 42617,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "vallejo",
+    "name": "Vallejo",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 132030,
+    "pop_female": 137970,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "san_luis_obispo",
+    "name": "San Luis Obispo",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 83032,
+    "pop_female": 86768,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "santa_barbara",
+    "name": "Santa Barbara",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 130856,
+    "pop_female": 136744,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "santa_cruz",
+    "name": "Santa Cruz",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 80098,
+    "pop_female": 83702,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "palmdale",
+    "name": "Palmdale-Lancaster",
+    "state": "CA",
+    "aliases": [
+      "Palmdale",
+      "Lancaster"
+    ],
+    "pop_male": 164304,
+    "pop_female": 171696,
+    "income_ratio": 0.85
+  },
+  {
+    "id": "santa_ana",
+    "name": "Santa Ana",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 90954,
+    "pop_female": 95046,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "anaheim",
+    "name": "Anaheim",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 101223,
+    "pop_female": 105777,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "irvine",
+    "name": "Irvine",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 90954,
+    "pop_female": 95046,
+    "income_ratio": 1.25
+  },
+  {
+    "id": "long_beach",
+    "name": "Long Beach",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 134964,
+    "pop_female": 141036,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "glendale_ca",
+    "name": "Glendale",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 58680,
+    "pop_female": 61320,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "pasadena",
+    "name": "Pasadena",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 41369,
+    "pop_female": 43231,
+    "income_ratio": 1.15
+  },
+  {
+    "id": "fremont",
+    "name": "Fremont",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 68949,
+    "pop_female": 72051,
+    "income_ratio": 1.35
+  },
+  {
+    "id": "san_bernardino",
+    "name": "San Bernardino",
+    "state": "CA",
+    "aliases": [],
+    "pop_male": 65135,
+    "pop_female": 68065,
+    "income_ratio": 0.82
+  },
+  {
+    "id": "aurora_co",
+    "name": "Aurora",
+    "state": "CO",
+    "aliases": [],
+    "pop_male": 111492,
+    "pop_female": 116508,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "henderson_nv",
+    "name": "Henderson",
+    "state": "NV",
+    "aliases": [],
+    "pop_male": 96822,
+    "pop_female": 101178,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "plano_tx",
+    "name": "Plano",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 85086,
+    "pop_female": 88914,
+    "income_ratio": 1.18
+  },
+  {
+    "id": "arlington_tx",
+    "name": "Arlington",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 115893,
+    "pop_female": 121107,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "amarillo",
+    "name": "Amarillo",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 93595,
+    "pop_female": 97805,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "abilene",
+    "name": "Abilene",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 50465,
+    "pop_female": 52735,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "midland_tx",
+    "name": "Midland-Odessa",
+    "state": "TX",
+    "aliases": [
+      "Midland",
+      "Odessa"
+    ],
+    "pop_male": 96822,
+    "pop_female": 101178,
+    "income_ratio": 1.25
+  },
+  {
+    "id": "waco",
+    "name": "Waco",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 81565,
+    "pop_female": 85235,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "longview_tx",
+    "name": "Longview",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 65722,
+    "pop_female": 68678,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "tyler_tx",
+    "name": "Tyler",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 68949,
+    "pop_female": 72051,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "college_station",
+    "name": "College Station-Bryan",
+    "state": "TX",
+    "aliases": [
+      "College Station",
+      "Bryan"
+    ],
+    "pop_male": 77751,
+    "pop_female": 81249,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "san_marcos",
+    "name": "San Marcos",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 88020,
+    "pop_female": 91980,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "denton",
+    "name": "Denton",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 73350,
+    "pop_female": 76650,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "frisco_tx",
+    "name": "Frisco",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 61614,
+    "pop_female": 64386,
+    "income_ratio": 1.22
+  },
+  {
+    "id": "mckinney",
+    "name": "McKinney",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 58680,
+    "pop_female": 61320,
+    "income_ratio": 1.15
+  },
+  {
+    "id": "laredo",
+    "name": "Laredo",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 79614,
+    "pop_female": 83196,
+    "income_ratio": 0.75
+  },
+  {
+    "id": "brownsville",
+    "name": "Brownsville",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 123526,
+    "pop_female": 129084,
+    "income_ratio": 0.72
+  },
+  {
+    "id": "el_paso2",
+    "name": "El Paso",
+    "state": "TX",
+    "aliases": [],
+    "pop_male": 254923,
+    "pop_female": 266392,
+    "income_ratio": 0.78
+  },
+  {
+    "id": "bowling_green",
+    "name": "Bowling Green",
+    "state": "KY",
+    "aliases": [],
+    "pop_male": 52812,
+    "pop_female": 55188,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "olympia",
+    "name": "Olympia",
+    "state": "WA",
+    "aliases": [],
+    "pop_male": 83619,
+    "pop_female": 87381,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "bellingham",
+    "name": "Bellingham",
+    "state": "WA",
+    "aliases": [],
+    "pop_male": 68656,
+    "pop_female": 71744,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "yakima",
+    "name": "Yakima",
+    "state": "WA",
+    "aliases": [],
+    "pop_male": 74524,
+    "pop_female": 77876,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "tacoma",
+    "name": "Tacoma",
+    "state": "WA",
+    "aliases": [],
+    "pop_male": 264060,
+    "pop_female": 275940,
+    "income_ratio": 1.08
+  },
+  {
+    "id": "eugene",
+    "name": "Eugene",
+    "state": "OR",
+    "aliases": [],
+    "pop_male": 112044,
+    "pop_female": 117085,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "springfield_il",
+    "name": "Springfield",
+    "state": "IL",
+    "aliases": [],
+    "pop_male": 60440,
+    "pop_female": 63160,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "champaign",
+    "name": "Champaign-Urbana",
+    "state": "IL",
+    "aliases": [
+      "Champaign",
+      "Urbana"
+    ],
+    "pop_male": 64841,
+    "pop_female": 67759,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "bloomington_il",
+    "name": "Bloomington",
+    "state": "IL",
+    "aliases": [],
+    "pop_male": 51932,
+    "pop_female": 54268,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "aurora_il",
+    "name": "Aurora",
+    "state": "IL",
+    "aliases": [],
+    "pop_male": 52812,
+    "pop_female": 55188,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "racine",
+    "name": "Racine",
+    "state": "WI",
+    "aliases": [],
+    "pop_male": 57213,
+    "pop_female": 59787,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "burlington_vt",
+    "name": "Burlington",
+    "state": "VT",
+    "aliases": [],
+    "pop_male": 67052,
+    "pop_female": 70069,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "concord_nh",
+    "name": "Concord",
+    "state": "NH",
+    "aliases": [],
+    "pop_male": 45184,
+    "pop_female": 47216,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "ithaca",
+    "name": "Ithaca",
+    "state": "NY",
+    "aliases": [],
+    "pop_male": 30807,
+    "pop_female": 32193,
+    "income_ratio": 0.92
+  }
+]

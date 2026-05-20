@@ -1,0 +1,184 @@
+[
+  {
+    "id": "seoul",
+    "name": "Seoul",
+    "state": "KR",
+    "aliases": [
+      "서울",
+      "Seoul Metro"
+    ],
+    "pop_male": 2940000,
+    "pop_female": 3060000,
+    "income_ratio": 1.18
+  },
+  {
+    "id": "busan",
+    "name": "Busan",
+    "state": "KR",
+    "aliases": [
+      "부산",
+      "Pusan"
+    ],
+    "pop_male": 1010000,
+    "pop_female": 1050000,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "incheon",
+    "name": "Incheon",
+    "state": "KR",
+    "aliases": [
+      "인천"
+    ],
+    "pop_male": 880000,
+    "pop_female": 920000,
+    "income_ratio": 0.96
+  },
+  {
+    "id": "daegu",
+    "name": "Daegu",
+    "state": "KR",
+    "aliases": [
+      "대구",
+      "Taegu"
+    ],
+    "pop_male": 740000,
+    "pop_female": 770000,
+    "income_ratio": 0.89
+  },
+  {
+    "id": "daejeon",
+    "name": "Daejeon",
+    "state": "KR",
+    "aliases": [
+      "대전",
+      "Taejon"
+    ],
+    "pop_male": 440000,
+    "pop_female": 460000,
+    "income_ratio": 0.93
+  },
+  {
+    "id": "gwangju",
+    "name": "Gwangju",
+    "state": "KR",
+    "aliases": [
+      "광주",
+      "Kwangju"
+    ],
+    "pop_male": 410000,
+    "pop_female": 430000,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "suwon",
+    "name": "Suwon",
+    "state": "KR",
+    "aliases": [
+      "수원"
+    ],
+    "pop_male": 350000,
+    "pop_female": 370000,
+    "income_ratio": 1.08
+  },
+  {
+    "id": "ulsan",
+    "name": "Ulsan",
+    "state": "KR",
+    "aliases": [
+      "울산"
+    ],
+    "pop_male": 330000,
+    "pop_female": 340000,
+    "income_ratio": 1.12
+  },
+  {
+    "id": "seongnam",
+    "name": "Seongnam",
+    "state": "KR",
+    "aliases": [
+      "성남"
+    ],
+    "pop_male": 290000,
+    "pop_female": 300000,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "goyang",
+    "name": "Goyang",
+    "state": "KR",
+    "aliases": [
+      "고양"
+    ],
+    "pop_male": 310000,
+    "pop_female": 330000,
+    "income_ratio": 1.02
+  },
+  {
+    "id": "yongin",
+    "name": "Yongin",
+    "state": "KR",
+    "aliases": [
+      "용인"
+    ],
+    "pop_male": 300000,
+    "pop_female": 320000,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "changwon",
+    "name": "Changwon",
+    "state": "KR",
+    "aliases": [
+      "창원"
+    ],
+    "pop_male": 310000,
+    "pop_female": 320000,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "cheongju",
+    "name": "Cheongju",
+    "state": "KR",
+    "aliases": [
+      "청주"
+    ],
+    "pop_male": 250000,
+    "pop_female": 260000,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "jeonju",
+    "name": "Jeonju",
+    "state": "KR",
+    "aliases": [
+      "전주"
+    ],
+    "pop_male": 250000,
+    "pop_female": 260000,
+    "income_ratio": 0.87
+  },
+  {
+    "id": "ansan",
+    "name": "Ansan",
+    "state": "KR",
+    "aliases": [
+      "안산"
+    ],
+    "pop_male": 230000,
+    "pop_female": 240000,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "jeju",
+    "name": "Jeju",
+    "state": "KR",
+    "aliases": [
+      "제주",
+      "Jeju Island"
+    ],
+    "pop_male": 180000,
+    "pop_female": 190000,
+    "income_ratio": 0.88
+  }
+]

@@ -1,0 +1,188 @@
+[
+  {
+    "id": "tokyo",
+    "name": "Tokyo",
+    "state": "JP",
+    "aliases": [
+      "東京",
+      "Greater Tokyo",
+      "Kanto"
+    ],
+    "pop_male": 10800000,
+    "pop_female": 11200000,
+    "income_ratio": 1.18
+  },
+  {
+    "id": "osaka",
+    "name": "Osaka",
+    "state": "JP",
+    "aliases": [
+      "大阪",
+      "Keihanshin",
+      "Kansai"
+    ],
+    "pop_male": 5500000,
+    "pop_female": 5800000,
+    "income_ratio": 1.0
+  },
+  {
+    "id": "nagoya",
+    "name": "Nagoya",
+    "state": "JP",
+    "aliases": [
+      "名古屋",
+      "Chukyo"
+    ],
+    "pop_male": 2900000,
+    "pop_female": 3100000,
+    "income_ratio": 1.05
+  },
+  {
+    "id": "fukuoka",
+    "name": "Fukuoka",
+    "state": "JP",
+    "aliases": [
+      "福岡"
+    ],
+    "pop_male": 1600000,
+    "pop_female": 1700000,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "sapporo",
+    "name": "Sapporo",
+    "state": "JP",
+    "aliases": [
+      "札幌",
+      "Hokkaido"
+    ],
+    "pop_male": 760000,
+    "pop_female": 810000,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "kobe",
+    "name": "Kobe",
+    "state": "JP",
+    "aliases": [
+      "神戸"
+    ],
+    "pop_male": 440000,
+    "pop_female": 470000,
+    "income_ratio": 0.96
+  },
+  {
+    "id": "kyoto",
+    "name": "Kyoto",
+    "state": "JP",
+    "aliases": [
+      "京都"
+    ],
+    "pop_male": 440000,
+    "pop_female": 470000,
+    "income_ratio": 0.95
+  },
+  {
+    "id": "yokohama",
+    "name": "Yokohama",
+    "state": "JP",
+    "aliases": [
+      "横浜"
+    ],
+    "pop_male": 1080000,
+    "pop_female": 1140000,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "sendai",
+    "name": "Sendai",
+    "state": "JP",
+    "aliases": [
+      "仙台",
+      "Tohoku"
+    ],
+    "pop_male": 320000,
+    "pop_female": 340000,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "hiroshima",
+    "name": "Hiroshima",
+    "state": "JP",
+    "aliases": [
+      "広島"
+    ],
+    "pop_male": 350000,
+    "pop_female": 370000,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "kumamoto",
+    "name": "Kumamoto",
+    "state": "JP",
+    "aliases": [
+      "熊本"
+    ],
+    "pop_male": 220000,
+    "pop_female": 235000,
+    "income_ratio": 0.86
+  },
+  {
+    "id": "okayama",
+    "name": "Okayama",
+    "state": "JP",
+    "aliases": [
+      "岡山"
+    ],
+    "pop_male": 220000,
+    "pop_female": 235000,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "okinawa",
+    "name": "Naha",
+    "state": "JP",
+    "aliases": [
+      "那覇",
+      "Okinawa"
+    ],
+    "pop_male": 210000,
+    "pop_female": 225000,
+    "income_ratio": 0.82
+  },
+  {
+    "id": "kanazawa",
+    "name": "Kanazawa",
+    "state": "JP",
+    "aliases": [
+      "金沢",
+      "Hokuriku"
+    ],
+    "pop_male": 145000,
+    "pop_female": 155000,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "matsuyama",
+    "name": "Matsuyama",
+    "state": "JP",
+    "aliases": [
+      "松山",
+      "Ehime"
+    ],
+    "pop_male": 130000,
+    "pop_female": 140000,
+    "income_ratio": 0.85
+  },
+  {
+    "id": "niigata",
+    "name": "Niigata",
+    "state": "JP",
+    "aliases": [
+      "新潟"
+    ],
+    "pop_male": 200000,
+    "pop_female": 215000,
+    "income_ratio": 0.88
+  }
+]

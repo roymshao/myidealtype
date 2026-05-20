@@ -1,0 +1,264 @@
+[
+  {
+    "id": "shanghai",
+    "name": "Shanghai",
+    "state": "CN",
+    "aliases": [
+      "上海",
+      "沪"
+    ],
+    "pop_male": 14800000,
+    "pop_female": 13700000,
+    "income_ratio": 1.45
+  },
+  {
+    "id": "beijing",
+    "name": "Beijing",
+    "state": "CN",
+    "aliases": [
+      "北京",
+      "京"
+    ],
+    "pop_male": 11200000,
+    "pop_female": 10500000,
+    "income_ratio": 1.42
+  },
+  {
+    "id": "chongqing",
+    "name": "Chongqing",
+    "state": "CN",
+    "aliases": [
+      "重庆",
+      "渝"
+    ],
+    "pop_male": 14200000,
+    "pop_female": 13200000,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "guangzhou",
+    "name": "Guangzhou",
+    "state": "CN",
+    "aliases": [
+      "广州",
+      "穗",
+      "Canton"
+    ],
+    "pop_male": 8200000,
+    "pop_female": 7500000,
+    "income_ratio": 1.28
+  },
+  {
+    "id": "shenzhen",
+    "name": "Shenzhen",
+    "state": "CN",
+    "aliases": [
+      "深圳",
+      "深"
+    ],
+    "pop_male": 7600000,
+    "pop_female": 6800000,
+    "income_ratio": 1.52
+  },
+  {
+    "id": "chengdu",
+    "name": "Chengdu",
+    "state": "CN",
+    "aliases": [
+      "成都",
+      "蓉"
+    ],
+    "pop_male": 7200000,
+    "pop_female": 6800000,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "tianjin",
+    "name": "Tianjin",
+    "state": "CN",
+    "aliases": [
+      "天津",
+      "津"
+    ],
+    "pop_male": 6100000,
+    "pop_female": 5700000,
+    "income_ratio": 1.08
+  },
+  {
+    "id": "wuhan",
+    "name": "Wuhan",
+    "state": "CN",
+    "aliases": [
+      "武汉",
+      "汉"
+    ],
+    "pop_male": 5600000,
+    "pop_female": 5200000,
+    "income_ratio": 0.92
+  },
+  {
+    "id": "hangzhou",
+    "name": "Hangzhou",
+    "state": "CN",
+    "aliases": [
+      "杭州",
+      "杭"
+    ],
+    "pop_male": 5600000,
+    "pop_female": 5100000,
+    "income_ratio": 1.22
+  },
+  {
+    "id": "suzhou",
+    "name": "Suzhou",
+    "state": "CN",
+    "aliases": [
+      "苏州",
+      "苏"
+    ],
+    "pop_male": 5100000,
+    "pop_female": 4700000,
+    "income_ratio": 1.28
+  },
+  {
+    "id": "xian",
+    "name": "Xi'an",
+    "state": "CN",
+    "aliases": [
+      "西安",
+      "Xian"
+    ],
+    "pop_male": 5000000,
+    "pop_female": 4600000,
+    "income_ratio": 0.85
+  },
+  {
+    "id": "nanjing",
+    "name": "Nanjing",
+    "state": "CN",
+    "aliases": [
+      "南京",
+      "宁"
+    ],
+    "pop_male": 4600000,
+    "pop_female": 4200000,
+    "income_ratio": 1.1
+  },
+  {
+    "id": "zhengzhou",
+    "name": "Zhengzhou",
+    "state": "CN",
+    "aliases": [
+      "郑州",
+      "郑"
+    ],
+    "pop_male": 4100000,
+    "pop_female": 3800000,
+    "income_ratio": 0.88
+  },
+  {
+    "id": "qingdao",
+    "name": "Qingdao",
+    "state": "CN",
+    "aliases": [
+      "青岛",
+      "青"
+    ],
+    "pop_male": 4000000,
+    "pop_female": 3700000,
+    "income_ratio": 0.98
+  },
+  {
+    "id": "foshan",
+    "name": "Foshan",
+    "state": "CN",
+    "aliases": [
+      "佛山"
+    ],
+    "pop_male": 3900000,
+    "pop_female": 3600000,
+    "income_ratio": 1.15
+  },
+  {
+    "id": "dongguan",
+    "name": "Dongguan",
+    "state": "CN",
+    "aliases": [
+      "东莞"
+    ],
+    "pop_male": 3900000,
+    "pop_female": 3500000,
+    "income_ratio": 1.15
+  },
+  {
+    "id": "changsha",
+    "name": "Changsha",
+    "state": "CN",
+    "aliases": [
+      "长沙",
+      "长"
+    ],
+    "pop_male": 3600000,
+    "pop_female": 3300000,
+    "income_ratio": 0.9
+  },
+  {
+    "id": "shenyang",
+    "name": "Shenyang",
+    "state": "CN",
+    "aliases": [
+      "沈阳",
+      "沈"
+    ],
+    "pop_male": 3500000,
+    "pop_female": 3200000,
+    "income_ratio": 0.85
+  },
+  {
+    "id": "harbin",
+    "name": "Harbin",
+    "state": "CN",
+    "aliases": [
+      "哈尔滨",
+      "哈"
+    ],
+    "pop_male": 3000000,
+    "pop_female": 2800000,
+    "income_ratio": 0.8
+  },
+  {
+    "id": "xiamen",
+    "name": "Xiamen",
+    "state": "CN",
+    "aliases": [
+      "厦门",
+      "鹭"
+    ],
+    "pop_male": 2500000,
+    "pop_female": 2300000,
+    "income_ratio": 1.12
+  },
+  {
+    "id": "kunming",
+    "name": "Kunming",
+    "state": "CN",
+    "aliases": [
+      "昆明",
+      "昆"
+    ],
+    "pop_male": 2500000,
+    "pop_female": 2300000,
+    "income_ratio": 0.82
+  },
+  {
+    "id": "nanning",
+    "name": "Nanning",
+    "state": "CN",
+    "aliases": [
+      "南宁"
+    ],
+    "pop_male": 2400000,
+    "pop_female": 2200000,
+    "income_ratio": 0.82
+  }
+]
