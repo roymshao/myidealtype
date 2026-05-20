@@ -77,20 +77,22 @@ export function generateRoastLines(
 
   // Attractiveness roast
   const looksSpread = criteria.maxLooksPercentile - criteria.minLooksPercentile;
-  if (criteria.minLooksPercentile <= 20 && criteria.maxLooksPercentile >= 99) {
+  const topPct = 100 - criteria.minLooksPercentile;
+  const topMaxPct = 100 - criteria.maxLooksPercentile;
+  if (topPct <= 20 && criteria.maxLooksPercentile >= 99) {
     lines.push({
       icon: "✨",
-      text: `Top ${criteria.minLooksPercentile}% attractiveness — you're describing someone who literally turns heads in every room. Only ${criteria.minLooksPercentile} out of 100 people qualify.`,
+      text: `Top ${topPct}% attractiveness — you're describing someone who literally turns heads in every room. Only ${topPct} out of 100 people qualify.`,
     });
-  } else if (criteria.minLooksPercentile <= 50 && criteria.maxLooksPercentile >= 99) {
+  } else if (topPct <= 50 && criteria.maxLooksPercentile >= 99) {
     lines.push({
       icon: "✨",
-      text: `You want someone in the top ${criteria.minLooksPercentile}% for looks — above average, which still cuts the pool in half.`,
+      text: `You want someone in the top ${topPct}% for looks — above average, which still cuts the pool significantly.`,
     });
   } else if (criteria.maxLooksPercentile < 99 && looksSpread < 40) {
     lines.push({
       icon: "✨",
-      text: `Narrow attractiveness window (top ${criteria.minLooksPercentile}%–${criteria.maxLooksPercentile}%): only ${looksSpread}% of people fall in this range.`,
+      text: `Narrow attractiveness window (top ${topMaxPct}%–top ${topPct}%): only ${looksSpread}% of people fall in this range.`,
     });
   }
 

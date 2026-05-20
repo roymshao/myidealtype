@@ -236,7 +236,7 @@ export default function CalculatorForm({
   const foreignBornPct = Math.round((1 - stats.nativity.native_born) * 100);
 
   return (
-    <div className="max-w-2xl mx-auto px-4 pb-28">
+    <div className="max-w-2xl mx-auto px-4 pb-6">
       {/* Language toggle for non-US countries that have translations */}
       {country !== "us" && LANG_TOGGLE_LABEL[country] && (
         <div className="flex justify-end pt-3 pb-1">
